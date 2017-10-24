@@ -5,7 +5,14 @@ if ($('#jm_qiuck_cover')) {
 	}, 1000);
 }
 
-// help object
+
+var hostname = window.location.hostname;
+var flg=false;
+if(hostname == 'intel2017.hirede.com'){
+	flg=true;
+}
+
+
 var help = {
 	htmlEvent: function() {
 		var ev = document.createEvent('HTMLEvents');
@@ -14,8 +21,8 @@ var help = {
 	},
 	maxEngLevel: function() {
 		var level = 0,
-			maxLevel = 0;
-		index = -1;
+			maxLevel = 0,
+			index = -1;
 		for (var i = 0; i < $('.infoEnglishSkill').length; i++) {
 			switch ($('.infoEnglishSkill .mt_skillEngLevel').eq(i).html()) {
 				case '大学英语四级':
@@ -85,10 +92,13 @@ var help = {
 				return i;
 			}
 		}
+		if(i === $item.length){
+			return 0;
+		}
 	}
 };
 
-// quick write object
+
 var autoWrite = {
 	textWrite: function(content, wtobj) {
 		if (content && wtobj.length > 0) {
@@ -145,9 +155,15 @@ var autoWrite = {
 	}
 };
 
-// profile
+
 var activeId = help.getActiveItem();
-if (activeId == 0) {
+if(flg === true){
+	if(activeId>=2 && activeId<=5){
+		activeId=activeId+1;
+	}
+}
+
+if (activeId == 0 && $('#sexMale').length) {
 	autoWrite.textWrite($('#mt_name').html(), $('#Name'));
 
 	autoWrite.sexWrite('#mt_sex', ['#sexMale', '#sexFemale']);
@@ -232,13 +248,14 @@ if (activeId == 0) {
 		}
 
 	});
-} else if (activeId == 2) {
+} 
+else if (activeId == 2) {
 	autoWrite.textWrite($('#mt_selfIntro').html(), $('#Assessment'));
 }
-// education information
+
 else if (activeId == 3) {
 	autoWrite.custonFunc(function() {
-		var id = $('div.span12').length;
+		var id = $('#educationList .span12').length;
 		if (id < $('.infopledu').length) {
 			autoWrite.selWrite($('.infopledu .mt_startYearY').eq(id).html(), $('#educationContentBox #BeginDateYear'));
 			autoWrite.selWrite($('.infopledu .mt_startYearM').eq(id).html(), $('#educationContentBox #BeginDateMonth'));
@@ -248,21 +265,23 @@ else if (activeId == 3) {
 			autoWrite.textWrite($('.infopledu .mt_schoolName').eq(id).html(), $('#educationContentBox #SchoolName'));
 			autoWrite.textWrite($('.infopledu .mt_professional').eq(id).html(), $('#educationContentBox #MajorName'));
 			autoWrite.selWrite($('.infopledu .mt_professionalranking').eq(id).html(), $('#educationContentBox #RankingInMajor'));
+			autoWrite.textWrite($('.infoschoolclub .mt_schClubList').eq(id).html(),$('#educationContentBox #Position'));
+			$('#educationContentBox #Position').val($('.infoschoolclub .mt_schClubList').eq(id).html());
 
 		}
 	});
 }
-// community activities
+
 else if (activeId == 4) {
 	$('#CommunityActivity').val('');
 	for (var i = 0; i < $('.infoschoolclub').length; i++) {
 		$('#CommunityActivity').val($('#CommunityActivity').val() + $('.infoschoolclub .mt_schClubList').eq(i).text() + '\\n');
 	}
 }
-// fulltimejob or parttimejob exprence
+
 else if (activeId == 5) {
 	autoWrite.custonFunc(function() {
-		var id = $('div.span12').length;
+		var id = $('#workExperienceList .span12').length;
 		var st,
 			et,
 			cName,
@@ -320,10 +339,10 @@ else if (activeId == 5) {
 		}
 	})
 }
-// project experence
+
 else if (activeId == 6) {
 	autoWrite.custonFunc(function() {
-		var id = $('div.span12').length;
+		var id = $('#projectList .span12').length;
 		if (id < $('.infoproject').length) {
 			var pst = $('.infoproject .mt_prostartdate').eq(id).html().split('-');
 			var pet = $('.infoproject .mt_proenddate').eq(id).html().split('-');
@@ -340,10 +359,10 @@ else if (activeId == 6) {
 		}
 	});
 }
-// skill
+
 else if (activeId == 7) {
 	autoWrite.custonFunc(function() {
-		var id = $('div.span12').length;
+		var id = $('#languageSkillList .span12').length;
 		var opt = $('#LanguageId').get(0).options;
 		if (id==0) {
 			var engLevel = help.maxEngLevel();
@@ -393,13 +412,13 @@ else if (activeId == 7) {
 		}
 	});
 }
-// hobby
+
 else if (activeId == 8) {
 	autoWrite.custonFunc(function() {
 		autoWrite.textWrite($('#mt_skill').text(), $('#OtherSkill'));
 	});
 }
-// family member
+
 else if (activeId == 9) {
 	autoWrite.custonFunc(function() {
 		autoWrite.textWrite($('#mt_fmname').text(), $('#familyNumberEdit #Name'));
@@ -409,7 +428,7 @@ else if (activeId == 9) {
 	});
 }
 
-// another page
+
 var eduId=help.maxEduIndex()['id'];
 autoWrite.textWrite($('#mt_name').html(), $('#Name'));
 autoWrite.selWrite($('#mt_sex').html(),$('#Gender'));
