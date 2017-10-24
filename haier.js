@@ -1,177 +1,236 @@
-if ($('#jm_qiuck_cover')) {$('#jm_qiuck_cover').fadeIn();setTimeout(function(){$('#jm_qiuck_cover').fadeOut()},1000)}
-//基本资料
-if ($('input[name=\"realname\"]')) {
-	$('input[name=\"realname\"]').val($('#mt_name').html());
-}
-if ($('.radiobox').eq(0).find('div').length && $('#mt_sex').html() == '男') {
-	$('.radiobox').eq(0).find('div').click();
-}
-if ($('.radiobox').eq(0).find('div').length && $('#mt_sex').html() == '女') {
-	$('.radiobox').eq(1).find('div').click();
-}
-if ($('input[name=\"birthday\"]')) {
-	$('input[name=\"birthday\"]').val($('#mt_birth').html());
-}
-if ($('input[name=\"mobile\"]')) {
-	$('input[name=\"mobile\"]').val($('#mt_tel').html());
-}
-if ($('input[name=\"idcard\"]') && $('#mt_id').html()) {
-	$('input[name=\"idcard\"]').val($('#mt_id').html());
-}
-if ($('input[name=\"email\"]')) {
-	$('input[name=\"email\"]').val($('#mt_email').html());
-}
-//校园
-var ev = document.createEvent('HTMLEvents');
-ev.initEvent('change', true, false);
-if($('select[name=\"top_location_school_address\"]').length && $('#mt_nativeplace').html()) {
-	var address = $('select[name=\"top_location_school_address\"]').get(0);  
-	var mt_nativeplace = $('#mt_nativeplace').html();   
-	for(var i=0; i<address.options.length; i++){
-	   if(address.options[i].innerHTML.indexOf(mt_nativeplace,0) !=-1){
-	   address.options[i].selected = true; 
-	   $('select[name=\"top_location_school_address\"]').get(0).dispatchEvent(ev);
-	   break; }  
-	}
-}
-window.setTimeout(function(){
-	if($('select[name=\"sub_location_school_address\"]').length && $('#mt_native_city').html()){
-		var addresscity = $('select[name=\"sub_location_school_address\"]').get(0);    
-		for(var i=0; i<addresscity.options.length; i++){
-		   if(addresscity.options[i].innerHTML.indexOf($('#mt_native_city').html(),0) !=-1){
-		   addresscity.options[i].selected = true; break; }  
+(function() {
+	KISSY.one('.quick-write').on('click', function() {
+		if ($('#jm_qiuck_cover')) {
+			$('#jm_qiuck_cover').fadeIn();
+			setTimeout(function() {
+				$('#jm_qiuck_cover').fadeOut()
+			}, 1000);
 		}
-	}
- },200);
-if ($('#bodyheight').length) {
-	$('#bodyheight').val($('#mt_height').html());
-}
-if ($('#bodyweight').length) {
-	$('#bodyweight').val($('#mt_weight').html());
-}
-if($('select[name=\"select_english_grade\"]').length && $('.infoEnglishSkill .mt_skillEngLevel').html()) {
-	var Language = $('select[name=\"select_english_grade\"]').get(0);
-	if($('.infoEnglishSkill .mt_skillEngLevel').html() == '大学英语四级'){
-		Language.options[2].selected=true; }
-	else if($('.infoEnglishSkill .mt_skillEngLevel').html() == '大学英语六级' ){
-		Language.options[3].selected=true; }
-	else if($('.infoEnglishSkill .mt_skillEngLevel').html() == '专业四级'){
-		Language.options[4].selected=true; }
-	else if($('.infoEnglishSkill .mt_skillEngLevel').html() == '专业八级' ){
-		Language.options[5].selected=true; }
-}
-if ($('#english_score').length) {
-	$('#english_score').val($('.infoEnglishSkill .mt_skillEngSorce').html());
-}   
-if ($('#other_language').length) {
-	$('#other_language').val($('.infoOtherSkill .mt_skillOtherLang').html());
-}
-if ($('#other_language_level').length) {
-	$('#other_language_level').val($('.infoOtherSkill .mt_skillGraspLevel').html());
-}
-if($('select[name=\"political\"]').length && $('#mt_polistatus').html()) {
-	var address = $('select[name=\"political\"]').get(0);  
-	var mt_polistatus = $('#mt_polistatus').html();   
-	for(var i=0; i<address.options.length; i++){
-	   if(address.options[i].innerHTML.indexOf(mt_polistatus,0) !=-1){
-	   address.options[i].selected = true; 
-	   break; }  
-	}
-}
-if ($('#txtiptintroduction').length) {
-	$('#txtiptintroduction').val($('#mt_selfIntro').html());
-} 
-//教育
-for (var i = 0; i <$('.infopledu').length; i++) {
-    var count = $('.Archives_list').eq(2).find('ul li').length;
-    if($('input[name=\"school_name\"]').length && $('.theme_title h3').html() == '新增教育经历' && $('.infopledu .mt_schoolName').eq(count).html()){
-        $('input[name=\"school_name\"]').val($('.infopledu .mt_schoolName').eq(count).html()); 
-    }
-    if($('input[name=\"start_time\"]').length && $('.theme_title h3').html() == '新增教育经历' && $('.infopledu .mt_startYear').eq(count).html()){
-        if ($('.infopledu .mt_startYear').eq(count).html().length <7) {
-            $('input[name=\"start_time\"]').val($('.infopledu .mt_startYear').eq(count).html().split('-').join('-0'));}
-        else{$('input[name=\"start_time\"]').val($('.infopledu .mt_startYear').eq(count).html())}
-    }
-    if($('input[name=\"end_time\"]').length && $('.theme_title h3').html() == '新增教育经历' && $('.theme_title h3').html() == '新增教育经历' && $('.infopledu .mt_endYear').eq(count).html()){
-        if ($('.infopledu .mt_endYear').eq(count).html().length <7) {
-            $('input[name=\"end_time\"]').val($('.infopledu .mt_endYear').eq(count).html().split('-').join('-0'));}
-        else{$('input[name=\"end_time\"]').val($('.infopledu .mt_endYear').eq(count).html())}
-    }
-    if ($('input[name=\"major\"]').length && $('.theme_title h3').html() == '新增教育经历' ) {
-        $('input[name=\"major\"]').val($('.infopledu .mt_professional').eq(count).html());
-    }
-    if($('select[name=\"select_education\"]').length && $('.theme_title h3').html() == '新增教育经历' && $('.infopledu .mt_education').eq(count).html()) {
-        var education = $('select[name=\"select_education\"]').get(0);
-        if($('.infopledu .mt_education').eq(count).html() == '大学本科-一本' || $('.infopledu .mt_education').eq(count).html() == '大学本科-二本' || $('.infopledu .mt_education').eq(count).html() == '大学本科-三本' || $('.infopledu .mt_education').eq(count).html() == '海外本科'){
-            education.options[6].selected=true; }
-        else if($('.infopledu .mt_education').eq(count).html() == '博士研究生' ){
-            education.options[2].selected=true; }
-        else if($('.infopledu .mt_education').eq(count).html() == '硕士研究生'){
-            education.options[5].selected=true; }
-        else if($('.infopledu .mt_education').eq(count).html() == 'MBA' ){
-            education.options[4].selected=true; }
-        else if($('.infopledu .mt_education').eq(count).html() == '大学专科' ){
-            education.options[7].selected=true; }
-    }
-    if ($('textarea[name=\"experience\"]').length && $('textarea[name=\"experience\"]').parent().prev('div').html() == '主修课程' && $('.infopledu .mt_major').eq(count).html()) {
-        $('textarea[name=\"experience\"]').val($('.infopledu .mt_major').eq(count).html());
-    }
+		if ($('input[name=\"realname\"]')) {
+			$('input[name=\"realname\"]').val($('#mt_name').html())
+		}
+		if ($('input[name=\"sex\"]').eq(0).next().find('i').length && $('#mt_sex').html() == '男') {
+			$('input[name=\"sex\"]').eq(0).next().find('i').trigger('click');
+		}
+		if ($('input[name=\"sex\"]').eq(1).next().find('i').length && $('#mt_sex').html() == '女') {
+			$('input[name=\"sex\"]').eq(1).next().find('i').trigger('click');
+		}
+		if ($('input[name=\"birthday\"]')) {
+			$('input[name=\"birthday\"]').val($('#mt_birth').html())
+		}
+		if ($('input[name=\"mobile\"]')) {
+			$('input[name=\"mobile\"]').val($('#mt_tel').html())
+		}
+		if ($('input[name=\"idcard\"]') && $('#mt_id').html()) {
+			$('input[name=\"idcard\"]').val($('#mt_id').html())
+		}
+		if ($('input[name=\"email\"]')) {
+			$('input[name=\"email\"]').val($('#mt_email').html())
+		}
+		if ($('input[name=\"nation\"]')) {
+			$('input[name=\"nation\"]').val($('#mt_national').html())
+		}
+		if ($('select[name=\"top_location_school_address\"]').length && $('#mt_nativeplace').html()) {
+			let length = $('select[name=\"top_location_school_address\"]').next().find('dd').length;
+			for(var i=0; i<length; i++){
+				if($('select[name=\"top_location_school_address\"]').next().find('dd').eq(i).html().substring(0,2) == $('#mt_nativeplace').html() + ''){
+					$('select[name=\"top_location_school_address\"]').next().find('dd').eq(i).trigger('click');
+				}
+			}
+		}
+		window.setTimeout(function(){
+			if ($('select[name=\"sub_location_school_address\"]').length && $('#mt_native_city').html()) {
+				let length = $('select[name=\"sub_location_school_address\"]').next().find('dd').length;
+				for(var i=0; i<length; i++){
+					if($('select[name=\"sub_location_school_address\"]').next().find('dd').eq(i).html().substring(0,2) == $('#mt_native_city').html() + ''){
+						$('select[name=\"sub_location_school_address\"]').next().find('dd').eq(i).trigger('click');
+					}
+				}
+			}
+		},200);
 
-}
-//获奖
-for (var i = 0; i <$('.infoschaward').length; i++) {
-	var count = $('.Archives_list').eq(3).find('.Archives_list ul li').eq(0).length;
-	if($('input[name=\"awardname\"]').length && $('.theme_title h3').html() == '新增获奖经历' && $('.infoschaward .mt_awardsName').eq(count).html()){
-        $('input[name=\"awardname\"]').val($('.infoschaward .mt_awardsName').eq(count).html()); 
-    }
-    if($('select[name=\"awardlevel\"]').length && $('.theme_title h3').html() == '新增获奖经历' && $('.infoschaward .mt_awardsType').eq(count).html()) {
-        var award = $('select[name=\"awardlevel\"]').get(0);
-        if($('.infoschaward .mt_awardsType').eq(count).html() == '国家级' ){
-            award.options[0].selected=true; }
-        else if($('.infoschaward .mt_awardsType').eq(count).html() == '学校级' ){
-            award.options[3].selected=true; }
-    }
-	if($('input[name=\"awardtime\"]').length && $('.theme_title h3').html() == '新增获奖经历' && $('.infoschaward .mt_awardsDate').eq(count).html()){
-        if ($('.infoschaward .mt_awardsDate').eq(count).html().length <7) {
-            $('input[name=\"awardtime\"]').val($('.infoschaward .mt_awardsDate').eq(count).html().split('-').join('-0')+'-01');}
-        else{$('input[name=\"awardtime\"]').val($('.infoschaward .mt_awardsDate').eq(count).html()+'-01')}
-    }
-}
-//学校经历
-for (var i = 0; i <$('.infoschoolclub').length; i++) {
-	var count = $('.Archives_list').eq(3).find('.Archives_list').eq(1).find('ul li').length;
-	if($('input[name=\"start_time\"]').length && $('.theme_title h3').html() == '新增学生工作经历' && $('.infoschoolclub .mt_startDate').eq(count).html()){
-        if ($('.infoschoolclub .mt_startDate').eq(count).html().length <7) {
-            $('input[name=\"start_time\"]').val($('.infoschoolclub .mt_startDate').eq(count).html().split('-').join('-0'));}
-        else{$('input[name=\"start_time\"]').val($('.infoschoolclub .mt_startDate').eq(count).html())}
-    }
-    if($('input[name=\"end_time\"]').length && $('.theme_title h3').html() == '新增学生工作经历' && $('.infoschoolclub .mt_endDate').eq(count).html()){
-        if ($('.infoschoolclub .mt_endDate').eq(count).html().length <7) {
-            $('input[name=\"end_time\"]').val($('.infoschoolclub .mt_endDate').eq(count).html().split('-').join('-0'));}
-        else{$('input[name=\"end_time\"]').val($('.infoschoolclub .mt_endDate').eq(count).html())}
-    }
-	if($('textarea[name=\"experience\"]').length && $('.theme_title h3').html() == '新增学生工作经历' && $('.infoschoolclub .mt_workDes').eq(count).html()){
-        $('textarea[name=\"experience\"]').val($('.infoschoolclub .mt_workDes').eq(count).html()); 
-    }
-}
-//实习
-for (var i = 0; i <$('.infoparttimejobs').length; i++) {
-	var count = $('.Archives_list').eq(3).find('.Archives_list').eq(2).find('ul li').length;
-	if($('input[name=\"company_name\"]').length && $('.theme_title h3').html() == '新增实习/项目经历' && $('.infoparttimejobs .mt_companyName').eq(count).html()){
-        $('input[name=\"company_name\"]').val($('.infoparttimejobs .mt_companyName').eq(count).html()); 
-    }
-	if($('input[name=\"start_time\"]').length && $('.theme_title h3').html() == '新增实习/项目经历' && $('.infoschoolclub .mt_startDate').eq(count).html()){
-        if ($('.infoparttimejobs .mt_startDate').eq(count).html().length <7) {
-            $('input[name=\"start_time\"]').val($('.infoparttimejobs .mt_startDate').eq(count).html().split('-').join('-0'));}
-        else{$('input[name=\"start_time\"]').val($('.infoparttimejobs .mt_startDate').eq(count).html())}
-    }
-    if($('input[name=\"end_time\"]').length && $('.theme_title h3').html() == '新增实习/项目经历' && $('.infoparttimejobs .mt_endDate').eq(count).html()){
-        if ($('.infoparttimejobs .mt_endDate').eq(count).html().length <7) {
-            $('input[name=\"end_time\"]').val($('.infoparttimejobs .mt_endDate').eq(count).html().split('-').join('-0'));}
-        else{$('input[name=\"end_time\"]').val($('.infoparttimejobs .mt_endDate').eq(count).html())}
-    }
-	if($('textarea[name=\"experience\"]').length && $('.theme_title h3').html() == '新增实习/项目经历' && $('.infoparttimejobs .mt_workContent').eq(count).text()){
-        $('textarea[name=\"experience\"]').val($('.infoparttimejobs .mt_workContent').eq(count).text()); 
-    }
-}
+		if ($('input[name=\"bodyheight\"]').length) {
+			$('input[name=\"bodyheight\"]').val($('#mt_height').html())
+		}
+		if ($('input[name=\"bodyweight\"]').length) {
+			$('input[name=\"bodyweight\"]').val($('#mt_weight').html())
+		}
+		if ($('select[name=\"select_english_grade\"]').next().find('dd').length && $('.infoEnglishSkill').find('.mt_skillEngLevel').last().html()) {
+			let skillEngLevel = $('.infoEnglishSkill .mt_skillEngLevel').last().html();
+			let mt_skillEngSorce = $('.infoEnglishSkill .mt_skillEngSorce').last().html();
+			let english_grade = $('select[name=\"select_english_grade\"]').next().find('dd');
+			let endlish_score = $('input[name=\"english_score\"]');
+			if (skillEngLevel == '大学英语四级') {
+				english_grade.eq(1).trigger('click');
+				endlish_score.val(mt_skillEngSorce);
+			} else if (skillEngLevel == '大学英语六级') {
+				english_grade.eq(2).trigger('click');
+				endlish_score.val(mt_skillEngSorce);
+			} else if (skillEngLevel == '专业四级') {
+				english_grade.eq(3).trigger('click');
+				endlish_score.val(mt_skillEngSorce);
+			} else if (skillEngLevel == '专业八级') {
+				english_grade.eq(4).trigger('click');
+				endlish_score.val(mt_skillEngSorce);
+			}
+		}
+		if($('select[name=\"political\"]') && $('#mt_polistatus').html()){
+			$('select[name=\"political\"]').next().find('input').val($('#mt_polistatus').html());
+		}
+		if($('textarea[name=\"introduction\"]') && $('#mt_selfIntro').html()){
+			$('textarea[name=\"introduction\"]').val($('#mt_selfIntro').html());
+		}
+		
+		//教育经历
+		if($('#jyjl')){
+			let length = $('#edu-list').find('.mt_schoolName').length;
+			let hadSave = $('#jyjl').children().length - 2;
+			let i = length - hadSave -1;
+			if ($('#jyjl input[name=\"school_name\"]').length && $('#edu-list .mt_schoolName').eq(i).html()) {
+				$('#jyjl input[name=\"school_name\"]').val($('#edu-list .mt_schoolName').eq(i).html())
+			}
+			if ($('#jyjl select[name=\"select_education\"]').next().find('input').length  && $('#edu-list .mt_education').eq(i).html()) {
+				let education = $('#jyjl select[name=\"select_education\"]').next().find('dd');
+				switch($('#edu-list .mt_education').eq(i).html()){
+					case '大学专科':
+		                education.eq(4).trigger('click');
+		                break;
+		            case '海外本科':
+		            case '大学本科-一本':
+		            case '大学本科-二本':
+		            case '大学本科-三本':
+		                education.eq(5).trigger('click');
+		                break;
+		            case 'MPA':
+		            	education.eq(6).trigger('click');
+		            	break;
+		            case 'MBA':
+		            	education.eq(7).trigger('click');
+		            	break;
+		            case '硕士研究生':
+		                education.eq(6).trigger('click');
+		            	break;
+		            case '博士研究生':
+		                education.eq(9).trigger('click');
+		            	break;
+				}
+			}
+			if ($('#jyjl input[name=\"start_time\"]').length && $('#edu-list .mt_startYear').eq(i).html()) {
+				$('#jyjl input[name=\"start_time\"]').val($('#edu-list .mt_startYear').eq(i).html())
+			}
+			if ($('#jyjl input[name=\"end_time\"]').length && $('#edu-list .mt_endYear').eq(i).html()) {
+				$('#jyjl input[name=\"end_time\"]').val($('#edu-list .mt_endYear').eq(i).html())
+			}
+			if ($('#jyjl input[name=\"major\"]').length && $('#edu-list .mt_major').eq(i).html()) {
+				$('#jyjl input[name=\"major\"]').val($('#edu-list .mt_major').eq(i).html())
+			}
+		}
 
+		//获奖经历
+		if($('#hjjl')){
+			let length = $('#schawards-list').find('.mt_awardsName').length;
+			let hadSave = $('#hjjl').children().length - 2;
+			let i = length - hadSave -1;
+			if ($('#hjjl input[name=\"awardtime\"]').length && $('#schawards-list .mt_awardsDate').eq(i).html()) {
+				$('#hjjl input[name=\"awardtime\"]').val($('#schawards-list .mt_awardsDate').eq(i).html())
+			}
+			if ($('#hjjll select[name=\"awardlevel\"]').next().find('dd').length  && $('#schawards-list .mt_awardsType').eq(i).html()) {
+				let awardlevel = $('#hjjl select[name=\"awardlevel\"]').next().find('dd');
+				switch($('#schawards-list .mt_awardsType').eq(i).html()){
+					case '国家级':
+		                awardlevel.eq(0).trigger('click');
+		                break;
+		            case '省市级':
+		             	awardlevel.eq(1).trigger('click');
+		                break;
+		            case '学校级':
+		            	awardlevel.eq(3).trigger('click');
+		                break;
+		          	default:break;
+				}
+			}
+			if ($('#hjjl input[name=\"awardname\"]').length && $('#schawards-list .mt_awardsName').eq(i).html()) {
+				$('#hjjl input[name=\"awardname\"]').val($('#schawards-list .mt_awardsName').eq(i).html())
+			}
+		}
+		
+		//社团经历
+		if($('#xsgz')){
+			let length = $('#schclub-list').find('.mt_schClubName').length;
+			let hadSave = $('#xsgz').children().length - 2;
+			let i = length - hadSave -1;
+			if ($('#xsgz input[name=\"start_time\"]').length && $('#schclub-list .mt_startDate').eq(i).html()) {
+				$('#xsgz input[name=\"start_time\"]').val($('#schclub-list .mt_startDate').eq(i).html())
+			}
+			if ($('#xsgz input[name=\"end_time\"]').length && $('#schclub-list .mt_endDate').eq(i).html()) {
+				$('#xsgz input[name=\"end_time\"]').val($('#schclub-list .mt_endDate').eq(i).html())
+			}
+			if ($('#xsgz input[name=\"company_name\"]').length && $('#schclub-list .mt_workDes').eq(i).html()) {
+				$('#xsgz input[name=\"company_name\"]').val($('#schclub-list .mt_workDes').eq(i).html())
+			}
+			if ($('#xsgz textarea[name=\"experience\"]').length && $('#schclub-list .mt_schClubList').eq(i).html()) {
+				$('#xsgz textarea[name=\"experience\"]').val($('#schclub-list .mt_schClubList').eq(i).html())
+			}
+		}
+		
+		//项目经历
+		if($('#sxjl')){
+			let length = $('#pro-list').find('.mt_projectName').length;
+			let hadSave = $('#sxjl').children().length - 2;
+			let i = length - hadSave -1;
+			if ($('#sxjl input[name=\"start_time\"]').length && $('#pro-list .mt_prostarttime').eq(i).html()) {
+				$('#sxjl input[name=\"start_time\"]').val($('#pro-list .mt_prostarttime').eq(i).html())
+			}
+			if ($('#sxjl input[name=\"end_time\"]').length && $('#pro-list .mt_proendtime').eq(i).html()) {
+				$('#sxjl input[name=\"end_time\"]').val($('#pro-list .mt_proendtime').eq(i).html())
+			}
+			if ($('#sxjl input[name=\"company_name\"]').length && $('#pro-list .mt_projectName').eq(i).html()) {
+				$('#sxjl input[name=\"company_name\"]').val($('#pro-list .mt_projectName').eq(i).html())
+			}
+			if ($('#sxjl textarea[name=\"experience\"]').length && $('#pro-list .mt_proList').eq(i).html()) {
+				$('#sxjl textarea[name=\"experience\"]').val($('#pro-list .mt_proList').eq(i).html())
+			}
+		}
+		//外语能力
+		if($('#wynl')){
+			let length = $('.mt_skillOtherLang').length;
+			let hadSave = $('#wynl').children().length - 2;
+			let i = length - hadSave -1;
+			if ($('#wynl select[name=\"yynl-yuzhong\"]') && $('.mt_skillOtherLang').eq(i).html()) {
+				let skillOtherLang = $('#wynl select[name=\"yynl-yuzhong\"]').next().find('dd');
+				switch($('.mt_skillOtherLang').eq(i).html()){
+					case '日语': skillOtherLang.eq(2).trigger('click');break;
+					case '法语': skillOtherLang.eq(1).trigger('click');break;
+					case '德语': skillOtherLang.eq(4).trigger('click');break;
+					case '俄语': skillOtherLang.eq(5).trigger('click');break;
+					case '韩语': skillOtherLang.eq(3).trigger('click');break;
+					case '西班牙语': skillOtherLang.eq(5).trigger('click');break;
+					case '葡萄牙语': skillOtherLang.eq(7).trigger('click');break;
+					case '阿拉伯语': skillOtherLang.eq(8).trigger('click');break;
+					case '粤语': skillOtherLang.eq(10).trigger('click');break;
+					default : break;
+				}
+			}
+			if ($('#wynl select[name=\"yynl-shuiping\"]') && $('.mt_skillGraspLevel').eq(i).html()) {
+				let skillGraspLevel = $('#wynl select[name=\"yynl-shuiping\"]').next().find('dd');
+				switch($('.mt_skillGraspLevel').eq(i).html()){
+					case '精通': skillGraspLevel.eq(0).trigger('click');break;
+					case '熟练': skillGraspLevel.eq(1).trigger('click');break;
+					case '一般': skillGraspLevel.eq(2).trigger('click');break;
+					case '了解': skillGraspLevel.eq(3).trigger('click');break;
+					default : break;
+				}
+			}
+		}
+		
+		//能力描述
+		if($('#nlms')){
+			if ($('#nlms textarea[name=\"skills\"]').length && $('#mt_hobbies').html()) {
+				$('#nlms textarea[name=\"skills\"]').val($('#mt_hobbies').html())
+			}
+			if ($('#nlms textarea[name=\"additional\"]').length && $('#mt_skill').html()) {
+				$('#nlms textarea[name=\"additional\"]').val($('#mt_skill').html())
+			}
+		}
+	});
+})()

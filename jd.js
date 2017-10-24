@@ -110,81 +110,97 @@ if ($('select[name=\"city\"]') && $('#mt_livecity_city').html()) {
         }
     }
 }
-for (var i = 0; i < $('.infopledu').length; i++) {
-    if (KISSY.one('input[name=\"schoolName\"]') && $('.mt_schoolName').eq(i).html()) {
-        KISSY.one('input[name=\"schoolName\"]').val($('.mt_schoolName').eq(i).html())
-    }
-    if (KISSY.one('input[name=\"schoolName\"]') && $('.mt_schoolName').eq(i).html()) {
-        KISSY.one('input[name=\"schoolName\"]').val($('.mt_schoolName').eq(i).html())
-    }
+if($('#englishLevel')  && $('#skill-list').find('.mt_skillEngLevel')){
+	switch($('#skill-list').find('.mt_skillEngLevel').html()){
+		case '大学英语四级': $('#englishLevel')[0].options[1].selected = true;break;
+		case '大学英语六级': $('#englishLevel')[0].options[2].selected = true;break;
+		case '专业四级': $('#englishLevel')[0].options[3].selected = true;break;
+		case '专业八级': $('#englishLevel')[0].options[4].selected = true;break;
+		default: $('#englishLevel')[0].options[0].selected = true;break;
+	}
+	$('#englishScore').val($('#skill-list').find('.mt_skillEngSorce').html());
+	
+	if($('#schoolOrInterviewLocus') && $('#mt_expectcity').html()){
+		$('#schoolOrInterviewLocus').val($('#mt_expectcity').html());
+	}
+	if($('#schoolOrInterviewCity') && $('#mt_expectcity_city').html()){
+		$('#schoolOrInterviewCity').val($('#mt_expectcity_city').html());
+	}
+	$('#schoolOrInterviewLocus').val('广东');
+	$('#schoolOrInterviewCity').val('深圳');
+}
 
-    if (KISSY.one('input[name=\"startDateString\"]') && $('#edu-list .mt_startYeardot').eq(i).html()) {
-        KISSY.one('input[name=\"startDateString\"]').val($('#edu-list .mt_startYeardot').eq(i).html())
-    }
-    if (KISSY.one('input[name=\"endDateString\"]') && $('#edu-list .mt_endYeardot').eq(i).html()) {
-        KISSY.one('input[name=\"endDateString\"]').val($('#edu-list .mt_endYeardot').eq(i).html())
-    }
-    if (KISSY.one('input[name=\"professionName\"]') && $('#edu-list .mt_professional').eq(i).html()) {
-        KISSY.one('input[name=\"professionName\"]').val($('#edu-list .mt_professional').eq(i).html())
-    }
-    if (KISSY.one('select[name=\"educationBackground\"]') && $('.mt_education').eq(i).html() && $('.mt_education').eq(i).html() == '大学专科') {
-        document.getElementById('educationBackground').options[0].selected = true
-    }
-    if (KISSY.one('select[name=\"educationBackground\"]') && $('.mt_education').eq(i).html() && $('.mt_education').eq(i).html() == '大学本科-一本' || $('.mt_education').eq(i).html() == '大学本科-二本' || $('.mt_education').eq(i).html() == '大学本科-三本' || $('.mt_education').eq(i).html() == '海外本科') {
-        document.getElementById('educationBackground').options[1].selected = true
-    }
-    if (KISSY.one('select[name=\"educationBackground\"]') && $('.mt_education').eq(i).html() && $('.mt_education').eq(i).html() == '硕士研究生') {
-        document.getElementById('educationBackground').options[2].selected = true
-    }
-    if (KISSY.one('select[name=\"educationBackground\"]') && $('.mt_education').eq(i).html() && $('.mt_education').eq(i).html() == '博士研究生') {
-        document.getElementById('educationBackground').options[3].selected = true
-    }
-    if (KISSY.one('select[name=\"educationBackground\"]') && $('.mt_education').eq(i).html() && $('.mt_education').eq(i).html() == 'MBA') {
-        document.getElementById('educationBackground').options[4].selected = true
-    }
-   
-    if (KISSY.one('select[name=\"degree\"]') && $('.mt_degree').eq(i).html() && $('.mt_degree').eq(i).html() == '学士' || $('.mt_degree').eq(i).html() == '双学士') {
-        document.getElementById('degree').options[0].selected = true
-    }
-    if (KISSY.one('select[name=\"degree\"]') && $('.mt_degree').eq(i).html() && $('.mt_degree').eq(i).html() == '硕士') {
-        document.getElementById('degree').options[1].selected = true
-    }
-    if (KISSY.one('select[name=\"degree\"]') && $('.mt_degree').eq(i).html() && $('.mt_degree').eq(i).html() == '博士') {
-        document.getElementById('degree').options[2].selected = true
-    }
-    if (KISSY.one('select[name=\"degree\"]') && $('.mt_degree').eq(i).html() && $('.mt_degree').eq(i).html() == 'MBA') {
-        document.getElementById('degree').options[3].selected = true
-    }
-    if (KISSY.one('select[name=\"degree\"]') && $('.mt_degree').eq(i).html() && $('.mt_degree').eq(i).html() == 'EMBA') {
-        document.getElementById('degree').options[4].selected = true
-    }
-    if (KISSY.one('select[name=\"degree\"]') && $('.mt_degree').eq(i).html() && $('.mt_degree').eq(i).html() == '其他' || $('.mt_degree').eq(i).html() == '无' || $('.mt_degree').eq(i).html() == 'MPA') {
-        document.getElementById('degree').options[4].selected = true
-    }
-    if (KISSY.one('textarea[name=\"majorCourse\"]') && $('.mt_major').eq(i).html()) {
-        KISSY.one('textarea[name=\"majorCourse\"]').val($('.mt_major').eq(i).html())
-    }
-    if (KISSY.one('input[name=\"certifier\"]') && $('.mt_tutorname').eq(i).html()) {
-        KISSY.one('input[name=\"certifier\"]').val($('.mt_tutorname').eq(i).html())
-    }
-    if (KISSY.one('input[name=\"certifierContactInfo\"]') && $('.mt_tutorphone').eq(i).html()) {
-        KISSY.one('input[name=\"certifierContactInfo\"]').val($('.mt_tutorphone').eq(i).html())
-    }
-    if (KISSY.one('#familyMemberName') && $('.mt_fmname').eq(i).html()) {
-        KISSY.one('#familyMemberName').val($('.mt_fmname').eq(i).html())
-    }
-    if (KISSY.one('#relation') && $('.mt_fmrelation').eq(i).html()) {
-        KISSY.one('#relation').val($('.mt_fmrelation').eq(i).html())
-    }
-    if (KISSY.one('#unit') && $('.mt_fmwork').eq(i).html()) {
-        KISSY.one('#unit').val($('.mt_fmwork').eq(i).html())
-    }
-    if (KISSY.one('#duty') && $('.mt_fmposition').eq(i).html()) {
-        KISSY.one('#duty').val($('.mt_fmposition').eq(i).html())
-    }
-    if (KISSY.one('#contactNumber') && $('.mt_fmphone').eq(i).html()) {
-        KISSY.one('#contactNumber').val($('.mt_fmphone').eq(i).html())
-    }
+//教育背景
+if($('#J-edu-part')){
+	let length = $('#edu-list').find('.mt_schoolName').length;
+	let hadSave = $('#J-edu-part').find('.resume-exp-table tr').length;
+	let i = length - hadSave;
+	if($('#startDateString') && $('#edu-list').find('.mt_startYear').eq(i).html()){
+		$('#startDateString').val($('#edu-list').find('.mt_startYear').eq(i).html());
+	}
+	if($('#endDateString') && $('#edu-list').find('.mt_endYear').eq(i).html()){
+		$('#endDateString').val($('#edu-list').find('.mt_endYear').eq(i).html());
+	}
+	if($('#schoolName') && $('#edu-list').find('.mt_schoolName').eq(i).html()){
+		$('#schoolName').val($('#edu-list').find('.mt_schoolName').eq(i).html());
+	}
+	if($('#professionName') && $('#edu-list').find('.mt_professional').eq(i).html()){
+		$('#professionName').val($('#edu-list').find('.mt_professional').eq(i).html());
+	}
+	if($('#educationBackground') && $('#edu-list').find('.mt_education').eq(i).html()){
+		studly_level = $('#educationBackground')[0];
+		switch($('#edu-list').find('.mt_education').eq(i).html()){
+			 case '大学专科':
+                studly_level.options[0].selected = true;
+                break;
+            case '海外本科':
+            case '大学本科-一本':
+            case '大学本科-二本':
+            case '大学本科-三本':
+                studly_level.options[1].selected = true;
+                break;
+            case 'MBA':
+            	studly_level.options[4].selected = true;
+                break;
+            case 'MPA':
+            case '硕士研究生':
+                studly_level.options[2].selected = true;
+                break;
+            case '博士研究生':
+                studly_level.options[3].selected = true;
+                break
+		}
+	}
+	if(hadSave == 1){
+		$('#isHighestEducation0').prop('checked', true);
+		$('#isHighestEducation0').prop('checked', false);
+	}else{
+		$('#isHighestEducation0').prop('checked', false);
+		$('#isHighestEducation0').prop('checked', true);
+	}
+	if($('#educationRank') && $('#edu-list').find('.mt_professionalranking').eq(i).html()){
+		let educationRank = $('#educationRank')[0];
+		switch($('#edu-list').find('.mt_professionalranking').eq(i).html()){
+			case '前5%': educationRank.options[0].selected=true;break;
+			case '前10%': educationRank.options[1].selected=true;break;
+			case '前20%': educationRank.options[2].selected=true;break;
+			case '前30%':
+			case '前40%':
+			case '前50%': 
+				educationRank.options[3].selected=true;break;
+			case '前60%':
+			case '前70%':
+			case '前80%':
+				educationRank.options[4].selected=true;break;
+		}
+	}
+	if($('#certifier') && $('#edu-list').find('.mt_tutorname').eq(i).html()){
+		$('#certifier').val($('#edu-list').find('.mt_tutorname').eq(i).html());
+	}
+	if($('#certifierContactInfo') && $('#edu-list').find('.mt_tutorphone').eq(i).html()){
+		$('#certifierContactInfo').val($('#edu-list').find('.mt_tutorphone').eq(i).html());
+	}
+	
 }
 for (var i = 0; i < $('.infoplcerti').length; i++) {
     if (KISSY.one('input[name=\"certificateTitle\"]') && $('.infoplcerti .mt_certificateName').eq(i).html()) {
@@ -238,53 +254,53 @@ for (var i = 0; i < $('.infoschaward').length; i++) {
         }
     }
 }
-for (var i = 0; i < $('.infofulltimejobs').length; i++) {
-    if (KISSY.one('#workstartDateString') && $('#exp-list .infofulltimejobs .mt_startDatedot').eq(i).html()) {
-        KISSY.one('#workstartDateString').val($('#exp-list .infofulltimejobs .mt_startDatedot').eq(i).html())
+for (var i = 0; i < $('.infoparttimejobs').length; i++) {
+    if (KISSY.one('#workstartDateString') && $('#exp-list .infoparttimejobs .mt_startDatedot').eq(i).html()) {
+        KISSY.one('#workstartDateString').val($('#exp-list .infoparttimejobs .mt_startDatedot').eq(i).html())
     }
-    if (KISSY.one('#workendDateString') && $('#exp-list .infofulltimejobs .mt_endDatedot').eq(i).html()) {
-        KISSY.one('#workendDateString').val($('#exp-list .infofulltimejobs .mt_endDatedot').eq(i).html())
+    if (KISSY.one('#workendDateString') && $('#exp-list .infoparttimejobs .mt_endDatedot').eq(i).html()) {
+        KISSY.one('#workendDateString').val($('#exp-list .infoparttimejobs .mt_endDatedot').eq(i).html())
     }
-    if (KISSY.one('#workcompanyName') && $('#exp-list .infofulltimejobs .mt_companyName').eq(i).html()) {
-        KISSY.one('#workcompanyName').val($('#exp-list .infofulltimejobs .mt_companyName').eq(i).html())
+    if (KISSY.one('#workcompanyName') && $('#exp-list .infoparttimejobs .mt_companyName').eq(i).html()) {
+        KISSY.one('#workcompanyName').val($('#exp-list .infoparttimejobs .mt_companyName').eq(i).html())
     }
-    if (KISSY.one('#workdepartment') && $('#exp-list .infofulltimejobs .mt_department').eq(i).html()) {
-        KISSY.one('#workdepartment').val($('#exp-list .infofulltimejobs .mt_department').eq(i).html())
+    if (KISSY.one('#workdepartment') && $('#exp-list .infoparttimejobs .mt_department').eq(i).html()) {
+        KISSY.one('#workdepartment').val($('#exp-list .infoparttimejobs .mt_department').eq(i).html())
     }
-    if (KISSY.one('#workjobTitle') && $('#exp-list .infofulltimejobs .mt_positionName').eq(i).html()) {
-        KISSY.one('#workjobTitle').val($('#exp-list .infofulltimejobs .mt_positionName').eq(i).html())
+    if (KISSY.one('#workjobTitle') && $('#exp-list .infoparttimejobs .mt_positionName').eq(i).html()) {
+        KISSY.one('#workjobTitle').val($('#exp-list .infoparttimejobs .mt_positionName').eq(i).html())
     }
-    if (KISSY.one('#workjobDescription') && $('#exp-list .infofulltimejobs .mt_workContent .workContent').eq(i).html()) {
-        KISSY.one('#workjobDescription').val($('#exp-list .infofulltimejobs .mt_workContent .workContent').eq(i).html())
+    if (KISSY.one('#workjobDescription') && $('#exp-list .infoparttimejobs .mt_workContent .workContent').eq(i).html()) {
+        KISSY.one('#workjobDescription').val($('#exp-list .infoparttimejobs .mt_workContent .workContent').eq(i).html())
     }
-    if (KISSY.one('#workcompanyScale') && $('#exp-list .infofulltimejobs .mt_companySize').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companySize').eq(i).html() == '少于50人') {
+    if (KISSY.one('#workcompanyScale') && $('#exp-list .infoparttimejobs .mt_companySize').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companySize').eq(i).html() == '少于50人') {
         document.getElementById('workcompanyScale').options[1].selected = true
     }
-    if (KISSY.one('#workcompanyScale') && $('#exp-list .infofulltimejobs .mt_companySize').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companySize').eq(i).html() == '500-999人' || $('#exp-list .infofulltimejobs .mt_companySize').eq(i).html() == '50-149人' || $('#exp-list .infofulltimejobs .mt_companySize').eq(i).html() == '150-499人') {
+    if (KISSY.one('#workcompanyScale') && $('#exp-list .infoparttimejobs .mt_companySize').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companySize').eq(i).html() == '500-999人' || $('#exp-list .infofulltimejobs .mt_companySize').eq(i).html() == '50-149人' || $('#exp-list .infofulltimejobs .mt_companySize').eq(i).html() == '150-499人') {
         document.getElementById('workcompanyScale').options[2].selected = true
     }
-    if (KISSY.one('#workcompanyScale') && $('#exp-list .infofulltimejobs .mt_companySize').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companySize').eq(i).html() == '1000-9999人') {
+    if (KISSY.one('#workcompanyScale') && $('#exp-list .infoparttimejobs .mt_companySize').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companySize').eq(i).html() == '1000-9999人') {
         document.getElementById('workcompanyScale').options[3].selected = true
     }
-    if (KISSY.one('#workcompanyScale') && $('#exp-list .infofulltimejobs .mt_companySize').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companySize').eq(i).html() == '10000人以上') {
+    if (KISSY.one('#workcompanyScale') && $('#exp-list .infoparttimejobs .mt_companySize').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companySize').eq(i).html() == '10000人以上') {
         document.getElementById('workcompanyScale').options[4].selected = true
     }
-    if (KISSY.one('#workcompanyNature') && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '外资-欧美' || $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '外资-非欧美' || $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '合资-欧美' || $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '合资-非欧美') {
+    if (KISSY.one('#workcompanyNature') && $('#exp-list .infoparttimejobs .mt_companyproperty').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '外资-欧美' || $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '外资-非欧美' || $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '合资-欧美' || $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '合资-非欧美') {
         document.getElementById('workcompanyNature').options[1].selected = true
     }
-    if (KISSY.one('#workcompanyNature') && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '民营公司' || $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '创业公司' || $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '上市公司') {
+    if (KISSY.one('#workcompanyNature') && $('#exp-list .infoparttimejobs .mt_companyproperty').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '民营公司' || $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '创业公司' || $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '上市公司') {
         document.getElementById('workcompanyNature').options[2].selected = true
     }
-    if (KISSY.one('#workcompanyNature') && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '国企') {
+    if (KISSY.one('#workcompanyNature') && $('#exp-list .infoparttimejobs .mt_companyproperty').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '国企') {
         document.getElementById('workcompanyNature').options[3].selected = true
     }
-    if (KISSY.one('#workcompanyNature') && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '非盈利机构' || $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '事业单位') {
+    if (KISSY.one('#workcompanyNature') && $('#exp-list .infoparttimejobs .mt_companyproperty').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '非盈利机构' || $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '事业单位') {
         document.getElementById('workcompanyNature').options[4].selected = true
     }
-    if (KISSY.one('#workcompanyNature') && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '外企代表处' || $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '政府机关') {
+    if (KISSY.one('#workcompanyNature') && $('#exp-list .infoparttimejobs .mt_companyproperty').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '外企代表处' || $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() && $('#exp-list .infofulltimejobs .mt_companyproperty').eq(i).html() == '政府机关') {
         document.getElementById('workcompanyNature').options[5].selected = true
     }
-    if (KISSY.one('#workcompanyIndustry') && $('#exp-list .infofulltimejobs .mt_companyCat').eq(i).html()) {
+    if (KISSY.one('#workcompanyIndustry') && $('#exp-list .infoparttimejobs .mt_companyCat').eq(i).html()) {
         switch ($('#exp-list .infofulltimejobs .mt_companyCat').eq(i).html()) {
         case '互联网/游戏/软件':
             document.getElementById('workcompanyIndustry').options[1].selected = true;
@@ -319,14 +335,17 @@ for (var i = 0; i < $('.infofulltimejobs').length; i++) {
             break
         }
     }
-    if (KISSY.one('#workcertifier') && $('#exp-list .infofulltimejobs .mt_reterenceName').eq(i).html()) {
-        KISSY.one('#workcertifier').val($('#exp-list .infofulltimejobs .mt_reterenceName').eq(i).html())
+    if (KISSY.one('#internshipCertifier') && $('#exp-list .infoparttimejobs .mt_reterenceName').eq(i).html()) {
+        KISSY.one('#internshipCertifier').val($('#exp-list .infoparttimejobs .mt_reterenceName').eq(i).html())
     }
-    if (KISSY.one('#workcertifierContactInfo') && $('#exp-list .infofulltimejobs .mt_reterence_phone').eq(i).html()) {
-        KISSY.one('#workcertifierContactInfo').val($('#exp-list .infofulltimejobs .mt_reterence_phone').eq(i).html())
+    if (KISSY.one('#internshipCertifierContactInfo') && $('#exp-list .infoparttimejobs .mt_reterence_phone').eq(i).html()) {
+        KISSY.one('#internshipCertifierContactInfo').val($('#exp-list .infoparttimejobs .mt_reterence_phone').eq(i).html())
     }
 }
-for (var i = 0; i < $('.infoparttimejobs').length; i++) {
+if($('J-exp-part')){
+	let length = $('#exp-list').find('.mt_companyName').length;
+	let hadSave = $('#J-exp-part').find('.resume-exp-table tr').length;
+	let i = length - hadSave;
     if (KISSY.one('#internshipstartDateString') && $('#exp-list .infoparttimejobs .mt_startDatedot').eq(i).html()) {
         KISSY.one('#internshipstartDateString').val($('#exp-list .infoparttimejobs .mt_startDatedot').eq(i).html())
     }
@@ -347,9 +366,6 @@ for (var i = 0; i < $('.infoparttimejobs').length; i++) {
     }
     if (KISSY.one('#companyScale') && $('#exp-list .infoparttimejobs .mt_companySize').eq(i).html() && $('#exp-list .infoparttimejobs .mt_companySize').eq(i).html() == '少于50人') {
         document.getElementById('companyScale').options[1].selected = true
-    }
-    if (KISSY.one('#companyScale') && $('#exp-list .infoparttimejobs .mt_companySize').eq(i).html() && $('#exp-list .infoparttimejobs .mt_companySize').eq(i).html() == '500-999人' || $('#exp-list .infoparttimejobs .mt_companySize').eq(i).html() == '50-149人' || $('#exp-list .infoparttimejobs .mt_companySize').eq(i).html() == '150-499人') {
-        document.getElementById('companyScale').options[2].selected = true
     }
     if (KISSY.one('#companyScale') && $('#exp-list .infoparttimejobs .mt_companySize').eq(i).html() && $('#exp-list .infoparttimejobs .mt_companySize').eq(i).html() == '1000-9999人') {
         document.getElementById('companyScale').options[3].selected = true
@@ -495,4 +511,15 @@ if (KISSY.one('select[name=\"firstHopeCityCode\"]') && KISSY.one('#mt_expectcity
             break
         }
     }
+}
+
+if($('#englishLevel')  && $('#skill-list').find('.mt_skillEngLevel')){
+	switch($('#skill-list').find('.mt_skillEngLevel').html()){
+		case '大学英语四级': $('#englishLevel')[0].options[1].selected = true;break;
+		case '大学英语六级': $('#englishLevel')[0].options[2].selected = true;break;
+		case '专业四级': $('#englishLevel')[0].options[3].selected = true;break;
+		case '专业八级': $('#englishLevel')[0].options[4].selected = true;break;
+		default: $('#englishLevel')[0].options[0].selected = true;break;
+	}
+	$('#englishScore').val($('#skill-list').find('.mt_skillEngSorce').html());
 }

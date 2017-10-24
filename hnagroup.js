@@ -13,6 +13,12 @@
 		if ($('#4c037148-140a-4c2b-b87a-b97609215d7011') && $('#mt_name').html()) {
 			$('#4c037148-140a-4c2b-b87a-b97609215d7011').val($('#mt_name').html())
 		}
+		if ($('input[name=\"RecruitmentPortalLang_extCertificateType_140036_1335944666\"]') && $('#skill-list .mt_skillEngLevel').last().html()){
+			$('input[name=\"RecruitmentPortalLang_extCertificateType_140036_1335944666\"]').val($('#skill-list .mt_skillEngLevel').last().html());
+		}
+		if ($('input[name=\"RecruitmentPortalLang_extFraction_140036_1927441460\"]') && $('#skill-list .mt_skillEngSorce').last().html()){
+			$('input[name=\"RecruitmentPortalLang_extFraction_140036_1927441460\"]').val($('#skill-list .mt_skillEngSorce').last().html());
+		}
 		if ($('input[name=\"RecruitmentPortalPersonProfile_NameEn\"]') && $('#mt_ywname').html()) {
 			$('input[name=\"RecruitmentPortalPersonProfile_NameEn\"]').val($('#mt_ywname').html())
 		}
@@ -21,6 +27,12 @@
 		}
 		if ($('#acb9b67f-9643-41fb-a7fe-5ff8d742ccdf11') && $('#mt_tel').html()) {
 			$('#acb9b67f-9643-41fb-a7fe-5ff8d742ccdf11').val($('#mt_tel').html())
+		}
+		if ($('#885567e0-5e3e-4e48-9a77-9b4313da006611') && $('.infoEnglishSkill .mt_skillEngLevel').html()) {
+			$('#885567e0-5e3e-4e48-9a77-9b4313da006611').val($('.infoEnglishSkill .mt_skillEngLevel').html())
+		}
+		if ($('#b6cf6039-f2fb-48d8-8a09-9213541b8fe111') && $('.infoEnglishSkill .mt_skillEngSorce').html()) {
+			$('#b6cf6039-f2fb-48d8-8a09-9213541b8fe111').val($('.infoEnglishSkill .mt_skillEngSorce').html())
 		}
 		if ($('#436ab7a4-67a1-4819-a238-d5d34eb0717611') && $('#mt_birth').html()) {
 			var birstr = $('#mt_birth').html();
@@ -47,12 +59,12 @@
 		if ($('input[displayname=\"籍贯\"]').length && $('#mt_native_city').html()) {
 			$('input[displayname=\"籍贯\"]').val($('#mt_native_city').html() + '市')
 		}
-		if ($('#RecruitmentPortalPersonProfile_exthf_190003_665066705').length && $('#mt_maritalstatus').html()) {
-			var mar = $('#RecruitmentPortalPersonProfile_exthf_190003_665066705')[0];
+		if ($('#RecruitmentPortalPersonProfile_WedState').length && $('#mt_maritalstatus').html()) {
+			var mar = $('#RecruitmentPortalPersonProfile_WedState')[0];
 			if ($('#mt_maritalstatus').html() == '未婚') {
-				mar.options[2].selected = true
-			} else if ($('#mt_maritalstatus').html() == '已婚') {
 				mar.options[1].selected = true
+			} else if ($('#mt_maritalstatus').html() == '已婚') {
+				mar.options[2].selected = true
 			} else if ($('#mt_maritalstatus').html() == '离婚') {
 				mar.options[3].selected = true
 			} else {
@@ -64,28 +76,28 @@
 			switch ($('#mt_edu').html()) {
 			case '高中':
 			case '初中及以下':
-				edu.options[3].selected = true;
+				edu.options[1].selected = true;
 				break;
 			case '中专':
 			case '技校/职高':
-				edu.options[4].selected = true;
+				edu.options[2].selected = true;
 				break;
 			case '大学专科':
-				edu.options[5].selected = true;
+				edu.options[3].selected = true;
 				break;
 			case '大学本科-一本':
 			case '大学本科-二本':
 			case '大学本科-三本':
-				edu.options[6].selected = true;
+				edu.options[4].selected = true;
 				break;
 			case '硕士研究生':
-				edu.options[7].selected = true;
+				edu.options[5].selected = true;
 				break;
 			case 'MBA':
-				edu.options[8].selected = true;
+				edu.options[6].selected = true;
 				break;
 			case '博士研究生':
-				edu.options[9].selected = true;
+				edu.options[7].selected = true;
 				break
 			}
 		}
@@ -210,6 +222,7 @@
 				plo.options[3].selected = true;
 				break;
 			case '无党派民主人士':
+			case '群众':
 				plo.options[4].selected = true;
 				break;
 			default:
@@ -265,7 +278,7 @@
 				switch ($('.infopledu .mt_education').eq(i).html()) {
 				case '高中':
 				case '初中及以下':
-					edu.options[3].selected = true;
+					edu.options[2].selected = true;
 					break;
 				case '中专':
 				case '技校/职高':
@@ -286,7 +299,7 @@
 					edu.options[8].selected = true;
 					break;
 				case '博士研究生':
-					edu.options[9].selected = true;
+					edu.options[8].selected = true;
 					break
 				}
 			}
@@ -363,6 +376,12 @@
 			if ($('input[name=\"RecruitmentPortalEducation_SchoolReferenceContact\"]').eq(i + 1).length && $('.infopledu .mt_tutorphone').eq(i).html()) {
 				$('input[name=\"RecruitmentPortalEducation_SchoolReferenceContact\"]').eq(i + 1).val($('.infopledu .mt_tutorphone').eq(i).html())
 			}
+			if ($('input[name=\"RecruitmentPortalEducation_TutorName\"]').eq(i + 1).length && $('.infopledu .mt_tutorname').eq(i).html()) {
+				$('input[name=\"RecruitmentPortalEducation_TutorName\"]').eq(i + 1).val($('.infopledu .mt_tutorname').eq(i).html())
+			}
+			if ($('input[name=\"RecruitmentPortalEducation_TutorContact\"]').eq(i + 1).length && $('.infopledu .mt_tutorphone').eq(i).html()) {
+				$('input[name=\"RecruitmentPortalEducation_TutorContact\"]').eq(i + 1).val($('.infopledu .mt_tutorphone').eq(i).html())
+			}
 		}
 		for (var i = 0; i < $('.infoproject').length; i++) {
 			var sy;
@@ -398,6 +417,12 @@
 			}
 			if ($('textarea[name=\"RecruitmentPortalProject_duty\"]').eq(i + 1).length && $('.infoproject .mt_projectDuty').eq(i).text()) {
 				$('textarea[name=\"RecruitmentPortalProject_duty\"]').eq(i + 1).val($('.infoproject .mt_projectDuty').eq(i).text())
+			}
+			if ($('input[name=\"RecruitmentPortalProject_ProjectNumber\"]').eq(i + 1).length && $('.infoproject .mt_projectNumber').eq(i).html()) {
+				$('input[name=\"RecruitmentPortalProject_ProjectNumber\"]').eq(i + 1).val($('.infoproject .mt_projectNumber').eq(i).html())
+			}
+			if ($('input[name=\"RecruitmentPortalProject_Job\"]').eq(i + 1).length && $('.infoproject .mt_positionName').eq(i).html()) {
+				$('input[name=\"RecruitmentPortalProject_Job\"]').eq(i + 1).val($('.infoproject .mt_positionName').eq(i).html())
 			}
 		}
 		for (var i = 0; i < $('.infoschaward').length; i++) {
@@ -471,6 +496,15 @@
 			}
 			if ($('input[displayname=\"工作地点\"]').eq(i + 1).length && $('.infofulltimejobs .mt_workCity').eq(i).html()) {
 				$('input[displayname=\"工作地点\"]').val($('.infofulltimejobs .mt_workCity').eq(i).html())
+			}
+			if ($('textarea[name=\"RecruitmentPortalExperience_ReasonOfLeaving\"]').eq(i + 1).length && $('.infofulltimejobs .mt_reasons').eq(i).text()) {
+				$('textarea[name=\"RecruitmentPortalExperience_ReasonOfLeaving\"]').eq(i + 1).val($('.infofulltimejobs .mt_reasons').eq(i).text())
+			}
+			if ($('input[name=\"RecruitmentPortalExperience_ReferencePosition\"]').eq(i + 1).length && $('.infofulltimejobs .mt_reterencePosition').eq(i).html()) {
+				$('input[name=\"RecruitmentPortalExperience_ReferencePosition\"]').eq(i + 1).val($('.infofulltimejobs .mt_reterencePosition').eq(i).html())
+			}
+			if ($('input[name=\"RecruitmentPortalExperience_ReferenceRelation\"]').eq(i + 1).length && $('.infofulltimejobs .mt_reterenceRelation').eq(i).html()) {
+				$('input[name=\"RecruitmentPortalExperience_ReferenceRelation\"]').eq(i + 1).val($('.infofulltimejobs .mt_reterenceRelation').eq(i).html())
 			}
 		}
 		for (var i = 0; i < $('.infoparttimejobs').length; i++) {
@@ -556,6 +590,15 @@
 			}
 			if ($('input[displayname=\"工作地点\"]').eq(i + 1).length && $('.infoparttimejobs .mt_workCity').eq(i).html()) {
 				$('input[displayname=\"工作地点\"]').val($('.infoparttimejobs .mt_workCity').eq(i).html())
+			}
+			if ($('textarea[name=\"RecruitmentPortalExperience_ReasonOfLeaving\"]').eq(i + 1).length && $('.infoparttimejobs .mt_reasons').eq(i).text()) {
+				$('textarea[name=\"RecruitmentPortalExperience_ReasonOfLeaving\"]').eq(i + 1).val($('.infoparttimejobs .mt_reasons').eq(i).text())
+			}
+			if ($('input[name=\"RecruitmentPortalExperience_ReferencePosition\"]').eq(i + 1).length && $('.infoparttimejobs .mt_reterencePosition').eq(i).html()) {
+				$('input[name=\"RecruitmentPortalExperience_ReferencePosition\"]').eq(i + 1).val($('.infoparttimejobs .mt_reterencePosition').eq(i).html())
+			}
+			if ($('input[name=\"RecruitmentPortalExperience_ReferenceRelation\"]').eq(i + 1).length && $('.infoparttimejobs .mt_reterenceRelation').eq(i).html()) {
+				$('input[name=\"RecruitmentPortalExperience_ReferenceRelation\"]').eq(i + 1).val($('.infoparttimejobs .mt_reterenceRelation').eq(i).html())
 			}
 		}
 		for (var i = 0; i < $('.infoschoolclub').length; i++) {
@@ -761,6 +804,9 @@
 			if ($('[name=\"RecruitmentPortalTrain_Certificate\"]').eq(i + 1) && $('.infotraining .mt_certificateName').eq(i).html()) {
 				$('[name=\"RecruitmentPortalTrain_Certificate\"]').eq(i + 1).val($('.infotraining .mt_certificateName').eq(i).html())
 			}
+			if ($('[name=\"RecruitmentPortalTrain_Description\"]').eq(i + 1) && $('.infotraining .mt_trainingDes').eq(i).html()) {
+				$('[name=\"RecruitmentPortalTrain_Description\"]').eq(i + 1).val($('.infotraining .mt_trainingDes').eq(i).html())
+			}
 		}
 		for (var i = 0; i < $('.infoplcerti').length; i++) {
 			if ($('input[name=\"RecruitmentPortalCertificate_CertificateName\"]').eq(i + 1) && $('.infoplcerti .mt_certificateName').eq(i).html()) {
@@ -772,26 +818,12 @@
 				getdate = getdate.join('/') + '/01';
 				$('[name=\"RecruitmentPortalCertificate_ObtainDate\"]').eq(i + 1).val(getdate)
 			}
-		}
-		for (var i = 0; i < $('.infootherinfo').length; i++) {
-			if ($('input[name=\"RecruitmentPortalSkill_SkillName\"]') && $('.infootherinfo #mt_hobbies').eq(i).html()) {
-				$('input[name=\"RecruitmentPortalSkill_SkillName\"]').val($('.infootherinfo #mt_hobbies').eq(i).html())
+			if ($('textarea[name=\"RecruitmentPortalCertificate_CertificateDescription\"]').eq(i + 1) && $('.infoplcerti .mt_certificateDes').eq(i).html()) {
+				$('textarea[name=\"RecruitmentPortalCertificate_CertificateDescription\"]').eq(i + 1).val($('.infoplcerti .mt_certificateDes').eq(i).html())
 			}
-		}
-		if ($('textarea[name=\"RecruitmentPortalAdditionalInfo_Interest\"]') && $('#mt_skill').html()) {
-			$('textarea[name=\"RecruitmentPortalAdditionalInfo_Interest\"]').val($('#mt_skill').html())
-		}
-		if ($('textarea[name=\"RecruitmentPortalAdditionalInfo_glory\"]') && $('#achievement').html()) {
-			$('textarea[name=\"RecruitmentPortalAdditionalInfo_glory\"]').val($('#achievement').html())
-		}
-		if ($('textarea[name=\"RecruitmentPortalAdditionalInfo_Specialskills\"]') && $('#mt_hobbies').html()) {
-			$('textarea[name=\"RecruitmentPortalAdditionalInfo_Specialskills\"]').val($('#mt_hobbies').html())
-		}
-		if ($('textarea[name=\"RecruitmentPortalAdditionalInfo_glory\"]') && $('#achievement').html()) {
-			$('textarea[name=\"RecruitmentPortalAdditionalInfo_glory\"]').val($('#achievement').html())
-		}
-		if ($('textarea[name=\"RecruitmentPortalAdditionalInfo_Specialty\"]') && $('#mt_skill').html()) {
-			$('textarea[name=\"RecruitmentPortalAdditionalInfo_Specialty\"]').val($('#mt_skill').html())
+			if ($('input[name=\"RecruitmentPortalCertificate_AwardOrg\"]').eq(i + 1) && $('.infoplcerti .mt_issuing').eq(i).html()) {
+				$('input[name=\"RecruitmentPortalCertificate_AwardOrg\"]').eq(i + 1).val($('.infoplcerti .mt_issuing').eq(i).html())
+			}
 		}
 		if ($('input[name=\"RecruitmentPortalFamily_Name\"]').eq(1) && $('#mt_fmname').html()) {
 			$('input[name=\"RecruitmentPortalFamily_Name\"]').eq(1).val($('#mt_fmname').html())
@@ -804,6 +836,15 @@
 		}
 		if ($('input[name=\"RecruitmentPortalFamily_telephone\"]').eq(1) && $('#mt_fmphone').html()) {
 			$('input[name=\"RecruitmentPortalFamily_telephone\"]').eq(1).val($('#mt_fmphone').html())
+		}
+		if ($('input[name=\"RecruitmentPortalFamily_JobTitle\"]').eq(1) && $('#mt_fmposition').html()) {
+			$('input[name=\"RecruitmentPortalFamily_JobTitle\"]').eq(1).val($('#mt_fmposition').html())
+		}
+		if ($('input[name=\"RecruitmentPortalFamily_FamilyLocaltion\"]').eq(1) && $('#mt_postadd').html()) {
+			$('input[name=\"RecruitmentPortalFamily_FamilyLocaltion\"]').eq(1).val($('#mt_postadd').html())
+		}
+		if ($('input[name=\"RecruitmentPortalPersonProfile_exthjxz_104849_115829694\"]').length && $('#mt_hukoucitynow').html()) {
+			$('input[name=\"RecruitmentPortalPersonProfile_exthjxz_104849_115829694\"]').val($('#mt_hukoucitynow').html() + $('#mt_hukoucitynow_city').html())
 		}
 	});
 })()

@@ -124,32 +124,39 @@
 			
 		}
 		
-		var length = $('.mt_skillEngLevel').length;
-		for(let i=0; i<length; i++){
-			if($('input[name=\"englishLevelSpecName\"]').eq(i) && $('.mt_skillEngLevel').eq(i).html()){
-					if(i>0){
-						$('.contant_english').find('.add_more').children().trigger('click');
-					}
-					if($('.mt_skillEngLevel').eq(i).html() == '大学英语四级'){
-						$('input[name=\"englishLevelSpecName\"]').eq(i).val('大学英语4级(CET-4)');
-						$('input[name=\"englishLevelSpecName\"]').eq(i).parent().parent().next().find('input[name=\"score\"]').val($('.mt_skillEngSorce').eq(i).html());
-					}
-					if($('.mt_skillEngLevel').eq(i).html() == '大学英语六级'){
-						$('input[name=\"englishLevelSpecName\"]').eq(i).val('大学英语6级(CET-6)');
-						$('input[name=\"englishLevelSpecName\"]').eq(i).parent().parent().next().find('input[name=\"score\"]').val($('.mt_skillEngSorce').eq(i).html());
-					}
-					if($('.mt_skillEngLevel').eq(i).html() == '专业四级'){
-						$('input[name=\"englishLevelSpecName\"]').eq(i).val('英语专业四级(TEM-4)');
-						$('input[name=\"englishLevelSpecName\"]').eq(i).parent().parent().next().find('input[name=\"score\"]').val($('.mt_skillEngSorce').eq(i).html());
-					}
-					if($('.mt_skillEngLevel').eq(i).html() == '专业八级'){
-						$('input[name=\"englishLevelSpecName\"]').eq(i).val('英语专业八级(TEM-8)')
-						$('input[name=\"englishLevelSpecName\"]').eq(i).parent().parent().next().find('input[name=\"score\"]').val($('.mt_skillEngSorce').eq(i).html());
-					}
+		if($('input[name=\"englishLevelSpecName\"]') && $('.mt_skillEngLevel').html()){
+			var length = $('.mt_skillEngLevel').length;
+			for(let i=0; i<length; i++){
+				if($('input[name=\"englishLevelSpecName\"]').eq(i) && $('.mt_skillEngLevel').eq(i).html()){
+						if($('.mt_skillEngLevel').eq(i).html() == '大学英语四级'){
+							$('input[name=\"englishLevelSpecName\"]').eq(i).val('大学英语4级(CET-4)');
+							$('input[name=\"score\"]').eq(i).val($('.mt_skillEngSorce').eq(i).html());
+						}
+						if($('.mt_skillEngLevel').eq(i).html() == '大学英语六级'){
+							$('input[name=\"englishLevelSpecName\"]').eq(i).val('大学英语6级(CET-6)');
+							$('input[name=\"score\"]').eq(i).val($('.mt_skillEngSorce').eq(i).html());
+						}
+						if($('.mt_skillEngLevel').eq(i).html() == '专业四级'){
+							$('input[name=\"englishLevelSpecName\"]').eq(i).val('英语专业四级(TEM-4)');
+							$('input[name=\"score\"]').eq(i).val($('.mt_skillEngSorce').eq(i).html());
+						}
+						if($('.mt_skillEngLevel').eq(i).html() == '专业八级'){
+							$('input[name=\"englishLevelSpecName\"]').eq(i).val('英语专业八级(TEM-8)');
+							$('input[name=\"score\"]').eq(i).val($('.mt_skillEngSorce').eq(i).html());
+						}
+				}
 			}
 		}
 		
 		
+		
+		if($('input[name=\"birthday\"]') && $('#mt_birth').html()){
+			$('input[name=\"birthday\"]').val($('#mt_birth').html());
+		}
+		if($('input[name=\"hometown\"]') && $('#mt_native_city').html()){
+			let native = $('#mt_nativeplace').html() + ' ' + $('#mt_native_city').html() + '市';
+			$('input[name=\"hometown\"]').val(native);
+		}
 		
 	})
 })()

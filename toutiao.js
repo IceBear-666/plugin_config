@@ -6,15 +6,12 @@ if(logo){
 	},1500);
 }
 
-
-
 var _ = function(index, i) {
 	if (typeof i === 'undefined') {
 		return document.querySelectorAll(index)[0];
 	}
 	return document.querySelectorAll(index)[i];
 };
-
 
 var _v = function(index, i) {
 	if (typeof i === 'undefined') {
@@ -23,7 +20,24 @@ var _v = function(index, i) {
 	return document.querySelectorAll(index)[i] ? document.querySelectorAll(index)[i].innerText : '';
 };
 
-
+var autoWrite = {
+	textWrite: function(content, obj) {
+		if (content && obj) {
+			obj.value = content;
+		}
+	},
+	sexWrite: function(){
+		if(_v('#mt_sex') === '男'){
+			_('#male').click();
+		}
+		else{
+			_('#famale').click();
+		}
+	},
+	custonFun: function(callback) {
+		callback();
+	}
+};
 
 var help = (function() {
 	var f1 = function(date) {
@@ -47,27 +61,36 @@ var help = (function() {
 
 })();
 
-
-var autoWrite = {
-	textWrite: function(content, obj) {
-		if (content && obj) {
-			obj.value = content;
-		}
-	},
-	sexWrite: function(){
-		if(_v('#mt_sex') === '男'){
-			_('#male').click();
-		}
-		else{
-			_('#famale').click();
-		}
-	},
-	custonFun: function(callback) {
-		callback();
-	}
-};
-
 autoWrite.textWrite(_v('#mt_name'), _('[name=\"name\"]'));
+autoWrite.textWrite(_v('#mt_tel'),_('[name=\"mobile\"]'));
+autoWrite.textWrite(_v('#mt_birth'),_('#birthdayDatePicker'));
+autoWrite.textWrite(_v('#mt_email'),_('[name=\"email\"]'));
+
+autoWrite.custonFun(function(){
+var idType = _('[name=\"idType\"]').options;
+switch(_v('#mt_idtype')){
+	case '身份证':
+		idType[1].selected=true;
+		break;
+	case '护照':
+		idType[2].selected=true;
+		break;
+	case '香港永久居民身份证':
+	case '香港非永久居民身份证':
+		idType[3].selected=true;
+		break;
+	case '台胞证':
+		idType[4].selected=true;
+		break;
+	default:
+		idtype[5].selected=true;
+}
+
+autoWrite.textWrite(_v('#mt_id'),_('[name=\"idNumber\"]',1));
+autoWrite.sexWrite();
+});
+
+
 
 var educationWrite = function() {
 	var eduContent = document.querySelectorAll('.education-container');
@@ -84,43 +107,17 @@ var educationWrite = function() {
 		}
 
 		if (_v('.infopledu .mt_startYear', i)) {
-			var sdate = help.addZero(_v('.infopledu .mt_startYear', i)) + '-01';
+			var sdate = help.addZero(_v('.infopledu .mt_startYear', i));
 			autoWrite.textWrite(sdate, _('#eduStartTime' + (i + 1)));
 		}
 
 		if (_v('.infopledu .mt_endYear', i)) {
-			var edate = help.addZero(_v('.infopledu .mt_endYear', i)) + '-01';
+			var edate = help.addZero(_v('.infopledu .mt_endYear', i));
 			autoWrite.textWrite(edate, _('#eduEndTime' + (i + 1)));
 		}
 
 		autoWrite.textWrite(_v('.infopledu .mt_schoolName', i), _('[name=\"school\"]', i));
 		autoWrite.textWrite(_v('.infopledu .mt_professional', i), _('[name=\"major\"]', i));
-
-		if (_v('.infopledu .mt_professionalranking', i)) {
-			var rank;
-			switch (_v('.infopledu .mt_professionalranking', i)) {
-				case '前5%':
-				case '前10%':
-					rank = 1;
-					break;
-				case '前20%':
-					rank = 2;
-					break;
-				case '前30%':
-					rank = 3;
-					break;
-				case '前40%':
-					rank = 4;
-					break;
-				case '前50%':
-					rank = 5;
-					break;
-				default:
-					rank = 6;
-					break;
-			}
-			_('#rank' + i + rank).click();
-		}
 
 	});
 
@@ -129,68 +126,24 @@ var educationWrite = function() {
 autoWrite.custonFun(educationWrite);
 
 autoWrite.custonFun(function() {
-	var schCon = '';
-	var camCon = _('[name=\"campusExperience\"]');
-	camCon.value = '';
-	for (var i = 0; i < document.querySelectorAll('.infoschoolclub').length; i++) {
-		schCon = camCon.value;
-		schCon = schCon + _v('.infoschoolclub .mt_schClubList', i) + '\\n';
-		camCon.value = schCon;
-	}
-});
-
-autoWrite.custonFun(function() {
-	var jobOpt = _('[name=\"internship\"]');
 	var len = document.querySelectorAll('.infoparttimejobs').length;
 
-	if (len > 0) {
-		jobOpt.options[1].selected = true;
-		jobOpt.dispatchEvent(help.event());
-		var jobContent = document.querySelectorAll('.experience-container');
+	var jobContent = document.querySelectorAll('.experience-container');
 
-		jobContent.forEach(function(val, i) {
-			if (_v('.infoparttimejobs .mt_startDate', i)) {
-				var st = help.addZero(_v('.infoparttimejobs .mt_startDate', i)) + '-01';
-				autoWrite.textWrite(st, _('#expStartTime' + (i + 1)));
-			}
-			if (_v('.infoparttimejobs .mt_endDate', i)) {
-				var et = help.addZero(_v('.infoparttimejobs .mt_endDate', i)) + '-01';
-				autoWrite.textWrite(et, _('#expEndTime' + (i + 1)));
-			}
-			autoWrite.textWrite(_v('.infoparttimejobs .mt_companyName', i), _('[name=\"company\"]', i));
-			autoWrite.textWrite(_v('.infoparttimejobs .mt_workList', i), jobContent[i].querySelector('textarea'));
-		});
-	} else {
-		jobOpt.options[2].selected = true;
-	}
+	jobContent.forEach(function(val, i) {
+		if (_v('.infoparttimejobs .mt_startDate', i)) {
+			var st = help.addZero(_v('.infoparttimejobs .mt_startDate', i));
+			autoWrite.textWrite(st, _('#expStartTime' + (i + 1)));
+		}
+		if (_v('.infoparttimejobs .mt_endDate', i)) {
+			var et = help.addZero(_v('.infoparttimejobs .mt_endDate', i));
+			autoWrite.textWrite(et, _('#expEndTime' + (i + 1)));
+		}
+		autoWrite.textWrite(_v('.infoparttimejobs .mt_companyName', i), _('[name=\"company\"]', i));
+		autoWrite.textWrite(_v('.infoparttimejobs .mt_workList', i), jobContent[i].querySelector('textarea'));
+	});
+
 
 });
 
-autoWrite.custonFun(function(){
-	var idType = _('[name=\"idType\"]').options;
-	switch(_v('#mt_idtype')){
-		case '身份证':
-			idType[1].selected=true;
-			break;
-		case '护照':
-			idType[2].selected=true;
-			break;
-		case '香港永久居民身份证':
-		case '香港非永久居民身份证':
-			idType[3].selected=true;
-			break;
-		case '台胞证':
-			idType[4].selected=true;
-			break;
-		default:
-			idtype[5].selected=true;
-	}
 
-	autoWrite.textWrite(_v('#mt_id'),_('[name=\"idNumber\"]',1));
-	autoWrite.sexWrite();
-	var birth = help.addZero(_v('#mt_birth'));
-	autoWrite.textWrite(birth,_('#birthdayDatePicker'));
-	autoWrite.textWrite(_v('#mt_tel'),_('[name=\"mobile\"]'));
-	autoWrite.textWrite(_v('#mt_email'),_('[name=\"email\"]'));
-
-});
