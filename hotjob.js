@@ -1902,7 +1902,11 @@
 				}
 			}
 		}
-		
+		if (pathname.indexOf('/wt/yujiahui/web/index/showNewResume') != -1) {
+			if($('#21_100201_1').length && $('#mt_fmphone').html()){
+				$('#21_100201_1').val($('#mt_fmphone').html())
+			}
+		}
 		if (pathname.indexOf('/wt/huya/web/index/showNewResume') != -1) {
 			if($('#17_all_content').length){
 				let length = $('.infoOtherSkill .infopl').length;
