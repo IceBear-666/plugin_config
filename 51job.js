@@ -209,6 +209,9 @@
 			if ($('input[cname=\"身高（CM）\"]').length && $('#mt_height').html()) {
 				$('input[cname=\"身高（CM）\"]').val($('#mt_height').html())
 			}
+			if ($('input[cname=\"身高(CM)\"]').length && $('#mt_height').html()) {
+				$('input[cname=\"身高(CM)\"]').val($('#mt_height').html())
+			}
 			if ($('input[cname=\"身高（应聘动物驯养岗人员必填）\"]').length && $('#mt_height').html()) {
 				$('input[cname=\"身高（应聘动物驯养岗人员必填）\"]').val($('#mt_height').html())
 			}
@@ -229,6 +232,9 @@
 			}
 			if ($('textarea[cname=\"特长及爱好\"]').length && $('#mt_skill').html()) {
 				$('textarea[cname=\"特长及爱好\"]').val($('#mt_skill').html())
+			}
+			if ($('textarea[cname=\"爱好及专长\"]').length && $('#mt_skill').html()) {
+				$('textarea[cname=\"爱好及专长\"]').val($('#mt_skill').html())
 			}
 			if ($('input[cname=\"QQ\"]').length && $('#mt_qqname').html()) {
 				$('input[cname=\"QQ\"]').val($('#mt_qqname').html())
@@ -6265,6 +6271,9 @@
 			if($('#cc_CCA24_1_1').length && $('#cc_CCA24_1_1').attr('cname') == '关系' && $('#mt_fmrelation').html()){
 				$('#cc_CCA24_1_1').val($('#mt_fmrelation').html());
 			}
+			if($('#cc_CCA2_1_1').length && $('#cc_CCA2_1_1').attr('cname') == '关系' && $('#mt_fmrelation').html()){
+				$('#cc_CCA2_1_1').val($('#mt_fmrelation').html());
+			}
 			if($('#cc_CCA2_1_1') && $('#cc_CCA2_1_1').attr('cname') =='亲属关系' && $('#mt_fmrelation').html()){
 				$('#cc_CCA2_1_1').val($('#mt_fmrelation').html());
 			}
@@ -6348,11 +6357,20 @@
 				if($('input[name=\"cc_CCF2_6_' + (i+1) + '\"]') && $('input[name=\"cc_CCF2_6_' + (i+1) + '\"]').attr('cname') == '担任职务' && $('.infoparttimejobs .mt_positionName').eq(i).html()){
 					$('input[name=\"cc_CCF2_6_' + (i+1) + '\"]').val($('.infoparttimejobs .mt_positionName').eq(i).html())
 				}
+				if($('input[name=\"cc_CCF2_6_' + (i+1) + '\"]') && $('input[name=\"cc_CCF2_6_' + (i+1) + '\"]').attr('cname') == '职位' && $('.infoparttimejobs .mt_positionName').eq(i).html()){
+					$('input[name=\"cc_CCF2_6_' + (i+1) + '\"]').val($('.infoparttimejobs .mt_positionName').eq(i).html())
+				}
 				if($('input[name=\"cc_CCA3_1_' + (i+1) + '\"]') && $('input[name=\"cc_CCA3_1_' + (i+1) + '\"]').attr('cname') == '岗位' && $('.infoparttimejobs .mt_positionName').eq(i).html()){
 					$('input[name=\"cc_CCA3_1_' + (i+1) + '\"]').val($('.infoparttimejobs .mt_department').eq(i).html())
 				}
 				if($('input[name=\"cc_CCA3_1_' + (i+1) + '\"]') && $('input[name=\"cc_CCA3_1_' + (i+1) + '\"]').attr('cname') == '所属部门' && $('.infoparttimejobs .mt_department').eq(i).html()){
 					$('input[name=\"cc_CCA3_1_' + (i+1) + '\"]').val($('.infoparttimejobs .mt_department').eq(i).html())
+				}
+				if($('input[name=\"cc_CCA4_1_' + (i+1) + '\"]') && $('input[name=\"cc_CCA4_1_' + (i+1) + '\"]').attr('cname') == '证明人' && $('.infoparttimejobs .mt_department').eq(i).html()){
+					$('input[name=\"cc_CCA4_1_' + (i+1) + '\"]').val($('.infoparttimejobs .mt_reterenceName').eq(i).html())
+				}
+				if($('input[name=\"cc_CCA5_1_' + (i+1) + '\"]') && $('input[name=\"cc_CCA5_1_' + (i+1) + '\"]').attr('cname') == '证明人联系方式' && $('.infoparttimejobs .mt_department').eq(i).html()){
+					$('input[name=\"cc_CCA5_1_' + (i+1) + '\"]').val($('.infoparttimejobs .mt_reterence_phone').eq(i).html())
 				}
 				if($('select[name=\"cc_CCA6_1_' + (i+1) + '\"]').length && $('.infoparttimejobs .mt_workcat').eq(i).html()){
 					let workcat = $('select[name=\"cc_CCA6_1_' + (i+1) + '\"]')[0];
@@ -7818,28 +7836,54 @@
 		}
 		//语言能力
 		if($('#container h1').text() == '语言能力'){
-			let endLevel = $('#ddl_CCE1_5_1')[0].options;
-			switch($('.infoEnglishSkill .mt_skillEngLevel').last().html()){
-				case '大学英语四级':
-					endLevel[1].selected = true;
-					endLevel[1].dispatchEvent(event);
-					endSorDom.val(endSorce);
-					break;
-				case '大学英语六级':
-					endLevel[2].selected = true;
-					endLevel[2].dispatchEvent(event);
-					break;
-				case '专业四级':
-					endLevel[7].selected = true;
-					endLevel[7].dispatchEvent(event);
-					break;
-				case '专业八级':
-					endLevel[3].selected = true;
-					endLevel[3].dispatchEvent(event);
-					break;
+			if($('#ddl_CCE1_5_1').length){
+				let endLevel = $('#ddl_CCE1_5_1')[0].options;
+				switch($('.infoEnglishSkill .mt_skillEngLevel').last().html()){
+					case '大学英语四级':
+						endLevel[1].selected = true;
+						endLevel[1].dispatchEvent(event);
+						endSorDom.val(endSorce);
+						break;
+					case '大学英语六级':
+						endLevel[2].selected = true;
+						endLevel[2].dispatchEvent(event);
+						break;
+					case '专业四级':
+						endLevel[7].selected = true;
+						endLevel[7].dispatchEvent(event);
+						break;
+					case '专业八级':
+						endLevel[3].selected = true;
+						endLevel[3].dispatchEvent(event);
+						break;
+				}
+			}
+			if($('#cc_CCA9_1_1').length && $('#cc_CCA9_1_1').attr('cname') == '英语资格认证'){
+				let endLevel = $('#cc_CCA9_1_1')[0].options;
+				switch($('.infoEnglishSkill .mt_skillEngLevel').last().html()){
+					case '大学英语四级':
+						endLevel[1].selected = true;
+						endLevel[1].dispatchEvent(event);
+						break;
+					case '大学英语六级':
+						endLevel[2].selected = true;
+						endLevel[2].dispatchEvent(event);
+						break;
+					case '专业四级':
+						endLevel[7].selected = true;
+						endLevel[7].dispatchEvent(event);
+						break;
+					case '专业八级':
+						endLevel[3].selected = true;
+						endLevel[3].dispatchEvent(event);
+						break;
+				}
 			}
 			if($('#cc_CCA1_1_1').length && $('.infoEnglishSkill .mt_skillEngSorce').last().html()){
 				$('#cc_CCA1_1_1').val($('.infoEnglishSkill .mt_skillEngSorce').last().html());	
+			}
+			if($('#cc_CCF3_6_1').length && $('#cc_CCF3_6_1').attr('cname') == '英语资格分数' && $('.infoEnglishSkill .mt_skillEngSorce').last().html()){
+				$('#cc_CCF3_6_1').val($('.infoEnglishSkill .mt_skillEngSorce').last().html());	
 			}
 		}
 		//工作经历
