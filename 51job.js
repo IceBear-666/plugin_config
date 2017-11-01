@@ -6733,35 +6733,44 @@
 				if($('input[name=\"cc_CCA3_1_' + (i+1) + '\"]') && $('.infoproject .mt_projectName').eq(i).html()){
 					$('input[name=\"cc_CCA3_1_' + (i+1) + '\"]').val($('.infoproject .mt_projectName').eq(i).html())
 				}
+				if($('textarea[name=\"cc_CCF1_6_' + (i+1) + '\"]') && $('.infoproject .mt_proList').eq(i).html()){
+					$('textarea[name=\"cc_CCF1_6_' + (i+1) + '\"]').val($('.infoproject .mt_proList').eq(i).html())
+				}
 				if($('input[name=\"cc_CCC5_3_' + (i+1) + '\"]').attr('cname') == '开始日期' && $('.infoproject .mt_prostarttime').eq(i).html()){
 					$('input[name=\"cc_CCC5_3_' + (i+1) + '\"]').val(formatDate($('.infoproject .mt_prostarttime').eq(i).html(), 2) + '-01')
 				}
 				if($('input[name=\"cc_CCC6_3_' + (i+1) + '\"]').attr('cname') == '结束日期' && $('.infoproject .mt_proendtime').eq(i).html()){
 					$('input[name=\"cc_CCC6_3_' + (i+1) + '\"]').val(formatDate($('.infoproject .mt_proendtime').eq(i).html(), 2) + '-01')
 				}
-				if($('input[name=\"cc_CCF3_6_' + (i+1) + '\"]') && $('input[cname=\"项目名称\"]') && $('.infoproject .mt_projectName').eq(i).html()){
+				if($('input[name=\"cc_CCF3_6_' + (i+1) + '\"]').attr('cname') == '项目名称' && $('.infoproject .mt_projectName').eq(i).html()){
 					$('input[name=\"cc_CCF3_6_' + (i+1) + '\"]').val($('.infoproject .mt_projectName').eq(i).html())
 				}
-				if($('input[name=\"cc_CCA1_1_' + (i+1) + '\"]') && $('input[cname=\"项目名称\"]') && $('.infoproject .mt_projectName').eq(i).html()){
+				if($('input[name=\"cc_CCA1_1_' + (i+1) + '\"]').attr('cname') == '项目名称' && $('.infoproject .mt_projectName').eq(i).html()){
 					$('input[name=\"cc_CCA1_1_' + (i+1) + '\"]').val($('.infoproject .mt_projectName').eq(i).html())
 				}
-				if($('input[name=\"cc_CCA1_1_' + (i+1) + '\"]') && $('input[cname=\"担任职务（校内）\"]') && $('.infoproject .mt_positionName').eq(i).html()){
+				if($('input[name=\"cc_CCA1_1_' + (i+1) + '\"]').attr('cname') == '担任职务（校内）' && $('.infoproject .mt_positionName').eq(i).html()){
 					$('input[name=\"cc_CCA1_1_' + (i+1) + '\"]').val($('.infoproject .mt_positionName').eq(i).html())
 				}
-				if($('input[name=\"cc_CCA2_1_' + (i+1) + '\"]') && $('input[cname=\"证明人\"]') && $('.infoproject .mt_reterenceName').eq(i).html()){
+				if($('input[name=\"cc_CCA3_1_' + (i+1) + '\"]').attr('cname') == '项目角色' && $('.infoproject .mt_positionName').eq(i).html()){
+					$('input[name=\"cc_CCA3_1_' + (i+1) + '\"]').val($('.infoproject .mt_positionName').eq(i).html())
+				}
+				if($('input[name=\"cc_CCA2_1_' + (i+1) + '\"]').attr('cname') == '证明人' && $('.infoproject .mt_reterenceName').eq(i).html()){
 					$('input[name=\"cc_CCA2_1_' + (i+1) + '\"]').val($('.infoproject .mt_reterenceName').eq(i).html())
 				}
-				if($('input[name=\"cc_CCA3_1_' + (i+1) + '\"]') && $('input[cname=\"证明人联系方式\"]') && $('.infoproject .mt_reterencePhone').eq(i).html()){
+				if($('input[name=\"cc_CCA2_1_' + (i+1) + '\"]').attr('cname') == '团队规模' && $('.infoproject .mt_projectNumber').eq(i).html()){
+					$('input[name=\"cc_CCA2_1_' + (i+1) + '\"]').val($('.infoproject .mt_projectNumber').eq(i).html())
+				}
+				if($('input[name=\"cc_CCA3_1_' + (i+1) + '\"]').attr('cname') == '证明人联系方式' && $('.infoproject .mt_reterencePhone').eq(i).html()){
 					$('input[name=\"cc_CCA3_1_' + (i+1) + '\"]').val($('.infoproject .mt_reterencePhone').eq(i).html())
 				}
-				if($('input[name=\"cc_CCF4_6_' + (i+1) + '\"]') && $('input[cname=\"职务\"]') && $('.infoproject .mt_projectDuty').eq(i).html()){
+				if($('input[name=\"cc_CCF4_6_' + (i+1) + '\"]').attr('cname') == '职务' && $('.infoproject .mt_projectDuty').eq(i).html()){
 					$('input[name=\"cc_CCF4_6_' + (i+1) + '\"]').val($('.infoproject .mt_projectDuty').eq(i).html())
-				}
-				if($('textarea[name=\"cc_CCF1_6_' + (i+1) + '\"]') && $('.infoproject .mt_proList').eq(i).html()){
-					$('textarea[name=\"cc_CCF1_6_' + (i+1) + '\"]').val($('.infoproject .mt_proList').eq(i).html())
 				}
 				if($('textarea[name=\"cc_CCF6_6_' + (i+1) + '\"]').attr('cname') == '项目描述' && $('.infoproject .mt_proList').eq(i).html()){
 					$('textarea[name=\"cc_CCF6_6_' + (i+1) + '\"]').val($('.infoproject .mt_proList').eq(i).html())
+				}
+				if($('textarea[name=\"cc_CCF1_6_' + (i+1) + '\"]').attr('cname') == '简介及成果' && $('.infoproject .mt_proList').eq(i).html()){
+					$('textarea[name=\"cc_CCF1_6_' + (i+1) + '\"]').val($('.infoproject .mt_proList').eq(i).html())
 				}
 				if($('input[cname=\"开始时间' + (i+1) + '\"]') && $('.infoproject .mt_prostarttime').eq(i).html()){
 					$('input[cname=\"开始时间' + (i+1) + '\"]').val(formatDate($('.infoproject .mt_prostarttime').eq(i).html(), 2) + '-01');
@@ -6778,29 +6787,32 @@
 			}
 		}
 		//社团经历
-		if($('#container h1').text() == '学生社团经验' || $('#container h1').text() == '社团/活动经历' || $('#container h1').text() == '在校实践经验' || $('#container h1').text() == '在校任职' || $('#container h1').text() == '学生会和社团' || $('#container h1').text() == '在校职务' || $('#container h1').text() == '学生干部任职情况' || $('#container h1').text() == '社团活动/工作实习情况' || $('#container h1').text() == '在校活动' || $('#container h1').text() == '校内活动经历' || $('#container h1').text() == '校内职务' || $('#container h1').text() == '学生干部经历' ||  $('#container h1').text() == '学生工作' || $('#container h1').text() == '校内实践经验' ){
+		if($('#container h1').text() == '学生社团经验' || $('#container h1').text() == '社团信息' || $('#container h1').text() == '社团/活动经历' || $('#container h1').text() == '在校实践经验' || $('#container h1').text() == '在校任职' || $('#container h1').text() == '学生会和社团' || $('#container h1').text() == '在校职务' || $('#container h1').text() == '学生干部任职情况' || $('#container h1').text() == '社团活动/工作实习情况' || $('#container h1').text() == '在校活动' || $('#container h1').text() == '校内活动经历' || $('#container h1').text() == '校内职务' || $('#container h1').text() == '学生干部经历' ||  $('#container h1').text() == '学生工作' || $('#container h1').text() == '校内实践经验' ){
 			let length = $('.infoschoolclub .infopl').length;
 			for(let i=0; i<length; i++){
-				if($('input[name=\"cc_CCC1_3_' + (i+1) + '\"]') && $('.infoschoolclub .mt_startDate').eq(i).html()){
+				if($('input[name=\"cc_CCC1_3_' + (i+1) + '\"]').length && $('.infoschoolclub .mt_startDate').eq(i).html()){
 					$('input[name=\"cc_CCC1_3_' + (i+1) + '\"]').val(formatDate($('.infoschoolclub .mt_startDate').eq(i).html(), 2) + '-01')
 				}
-				if($('input[name=\"cc_CCC2_3_' + (i+1) + '\"]') && $('.infoschoolclub .mt_endDate').eq(i).html()){
+				if($('input[name=\"cc_CCC2_3_' + (i+1) + '\"]').length && $('.infoschoolclub .mt_endDate').eq(i).html()){
 					$('input[name=\"cc_CCC2_3_' + (i+1) + '\"]').val(formatDate($('.infoschoolclub .mt_endDate').eq(i).html(), 2) + '-01')
 				}
-				if($('input[name=\"cc_CCA1_1_' + (i+1) + '\"]') && $('.infoschoolclub .mt_schClubName').eq(i).html()){
+				if($('input[name=\"cc_CCA1_1_' + (i+1) + '\"]').length && $('.infoschoolclub .mt_schClubName').eq(i).html()){
 					$('input[name=\"cc_CCA1_1_' + (i+1) + '\"]').val($('.infoschoolclub .mt_schClubName').eq(i).html())
 				}
-				if($('input[name=\"cc_CCA2_1_' + (i+1) + '\"]') && $('.infoschoolclub .mt_positionName').eq(i).html()){
+				if($('input[name=\"cc_CCA2_1_' + (i+1) + '\"]').length && $('.infoschoolclub .mt_positionName').eq(i).html()){
 					$('input[name=\"cc_CCA2_1_' + (i+1) + '\"]').val($('.infoschoolclub .mt_positionName').eq(i).html())
 				}
-				if($('textarea[name=\"cc_CCF1_6_' + (i+1) + '\"]') && $('.infoschoolclub .mt_schClubList').eq(i).html()){
+				if($('textarea[name=\"cc_CCF1_6_' + (i+1) + '\"]').length && $('.infoschoolclub .mt_schClubList').eq(i).html()){
 					$('textarea[name=\"cc_CCF1_6_' + (i+1) + '\"]').val($('.infoschoolclub .mt_schClubList').eq(i).html())
 				}
-				if($('textarea[name=\"cc_CCF1_6_' + (i+1) + '\"]') && $('.infoschoolclub .mt_schClubList').eq(i).html()){
+				if($('textarea[name=\"cc_CCF1_6_' + (i+1) + '\"]').length && $('.infoschoolclub .mt_schClubList').eq(i).html()){
 					$('textarea[name=\"cc_CCF1_6_' + (i+1) + '\"]').val($('.infoschoolclub .mt_schClubList').eq(i).html())
 				}
 				if($('input[name=\"cc_CCA1_1_' + (i+1) + '\"]').attr('cname') == '职务名称' && $('.infoschoolclub .mt_positionName').eq(i).html()){
 					$('input[name=\"cc_CCA1_1_' + (i+1) + '\"]').val($('.infoschoolclub .mt_positionName').eq(i).html())
+				}
+				if($('input[name=\"cc_CCA3_1_' + (i+1) + '\"]').attr('cname') == '社团担任的职位' && $('.infoschoolclub .mt_positionName').eq(i).html()){
+					$('input[name=\"cc_CCA3_1_' + (i+1) + '\"]').val($('.infoschoolclub .mt_positionName').eq(i).html())
 				}
 				if($('input[name=\"cc_CCA1_1_' + (i+1) + '\"]').attr('cname') == '在校职务名称' && $('.infoschoolclub .mt_positionName').eq(i).html()){
 					$('input[name=\"cc_CCA1_1_' + (i+1) + '\"]').val($('.infoschoolclub .mt_positionName').eq(i).html())
@@ -6814,43 +6826,43 @@
 				if($('input[name=\"cc_CCF2_6_' + (i+1) + '\"]').attr('cname') == '所在社团/参与项目' && $('.infoschoolclub .mt_schClubName').eq(i).html()){
 					$('input[name=\"cc_CCF2_6_' + (i+1) + '\"]').val($('.infoschoolclub .mt_schClubName').eq(i).html())
 				}
-				if($('input[name=\"cc_CCF1_6_' + (i+1) + '\"]') && $('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').attr('cname') == '社团/单位名称' && $('.infoschoolclub .mt_schClubName').eq(i).html()){
+				if($('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').length && $('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').attr('cname') == '社团/单位名称' && $('.infoschoolclub .mt_schClubName').eq(i).html()){
 					$('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').val($('.infoschoolclub .mt_schClubName').eq(i).html())
 				}
-				if($('input[name=\"cc_CCF1_6_' + (i+1) + '\"]') && $('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').attr('cname') == '校内活动名称' && $('.infoschoolclub .mt_schClubName').eq(i).html()){
+				if($('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').length && $('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').attr('cname') == '校内活动名称' && $('.infoschoolclub .mt_schClubName').eq(i).html()){
 					$('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').val('加入了：' + $('.infoschoolclub .mt_schClubName').eq(i).html())
 				}
-				if($('input[name=\"cc_CCF1_6_' + (i+1) + '\"]') && $('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').attr('cname') == '所任职务' && $('.infoschoolclub .mt_positionName').eq(i).html()){
+				if($('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').length && $('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').attr('cname') == '所任职务' && $('.infoschoolclub .mt_positionName').eq(i).html()){
 					$('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').val($('.infoschoolclub .mt_positionName').eq(i).html())
 				}
-				if($('input[name=\"cc_CCF2_6_' + (i+1) + '\"]') && $('input[name=\"cc_CCF2_6_' + (i+1) + '\"]').attr('cname') == '担任职务' && $('.infoschoolclub .mt_positionName').eq(i).html()){
+				if($('input[name=\"cc_CCF2_6_' + (i+1) + '\"]').length && $('input[name=\"cc_CCF2_6_' + (i+1) + '\"]').attr('cname') == '担任职务' && $('.infoschoolclub .mt_positionName').eq(i).html()){
 					$('input[name=\"cc_CCF2_6_' + (i+1) + '\"]').val($('.infoschoolclub .mt_positionName').eq(i).html())
 				}
-				if($('input[name=\"cc_CCA2_1_' + (i+1) + '\"]') && $('input[name=\"cc_CCA2_1_' + (i+1) + '\"]').attr('cname') == '在校组织' && $('.infoschoolclub .mt_schClubName').eq(i).html()){
+				if($('input[name=\"cc_CCA2_1_' + (i+1) + '\"]').length && $('input[name=\"cc_CCA2_1_' + (i+1) + '\"]').attr('cname') == '在校组织' && $('.infoschoolclub .mt_schClubName').eq(i).html()){
 					$('input[name=\"cc_CCA2_1_' + (i+1) + '\"]').val($('.infoschoolclub .mt_schClubName').eq(i).html())
 				}
-				if($('textarea[name=\"cc_CCF2_6_' + (i+1) + '\"]') && $('textarea[name=\"cc_CCF2_6_' + (i+1) + '\"]').attr('cname') == '校内活动描述' && $('.infoschoolclub .mt_schClubList').eq(i).html()){
+				if($('textarea[name=\"cc_CCF2_6_' + (i+1) + '\"]').length && $('textarea[name=\"cc_CCF2_6_' + (i+1) + '\"]').attr('cname') == '校内活动描述' && $('.infoschoolclub .mt_schClubList').eq(i).html()){
 					$('textarea[name=\"cc_CCF2_6_' + (i+1) + '\"]').val($('.infoschoolclub .mt_schClubList').eq(i).html())
 				}
-				if($('textarea[name=\"cc_CCF2_6_' + (i+1) + '\"]') && $('textarea[name=\"cc_CCF2_6_' + (i+1) + '\"]').attr('cname') == '工作内容' && $('.infoschoolclub .mt_schClubList').eq(i).html()){
+				if($('textarea[name=\"cc_CCF2_6_' + (i+1) + '\"]').length && $('textarea[name=\"cc_CCF2_6_' + (i+1) + '\"]').attr('cname') == '工作内容' && $('.infoschoolclub .mt_schClubList').eq(i).html()){
 					$('textarea[name=\"cc_CCF2_6_' + (i+1) + '\"]').val($('.infoschoolclub .mt_schClubList').eq(i).html())
 				}
-				if($('input[name=\"cc_CCC11_3_' + (i+1) + '\"]') && $('input[name=\"cc_CCC11_3_' + (i+1) + '\"]').attr('cname') == '担任时间' && $('.infoschoolclub .mt_startDate').eq(i).html()){
+				if($('input[name=\"cc_CCC11_3_' + (i+1) + '\"]').length && $('input[name=\"cc_CCC11_3_' + (i+1) + '\"]').attr('cname') == '担任时间' && $('.infoschoolclub .mt_startDate').eq(i).html()){
 					$('input[name=\"cc_CCC11_3_' + (i+1) + '\"]').val(formatDate($('.infoschoolclub .mt_startDate').eq(i).html(), 2) + '-01')
 				}
-				if($('input[cname=\"担任时间' + (i+1) + '\"]') && $('.infoschoolclub .mt_startDate').eq(i).html()){
+				if($('input[cname=\"担任时间' + (i+1) + '\"]').length && $('.infoschoolclub .mt_startDate').eq(i).html()){
 					$('input[cname=\"担任时间' + (i+1) + '\"]').val(formatDate($('.infoschoolclub .mt_startDate').eq(i).html(), 2) + '-01')
 				}
-				if($('input[name=\"cc_CCA9_1_' + (i+1) + '\"]') && $('input[name=\"cc_CCA9_1_' + (i+1) + '\"]').attr('cname') == '校内职务' && $('.infoschoolclub .mt_positionName').eq(i).html()){
+				if($('input[name=\"cc_CCA9_1_' + (i+1) + '\"]').length && $('input[name=\"cc_CCA9_1_' + (i+1) + '\"]').attr('cname') == '校内职务' && $('.infoschoolclub .mt_positionName').eq(i).html()){
 					$('input[name=\"cc_CCA9_1_' + (i+1) + '\"]').val($('.infoschoolclub .mt_positionName').eq(i).html())
 				}
-				if($('input[name=\"cc_CCA17_1_' + (i+1) + '\"]') && $('input[name=\"cc_CCA17_1_' + (i+1) + '\"]').attr('cname') == '校内活动/职位描述' && $('.infoschoolclub .mt_schClubList').eq(i).html()){
+				if($('input[name=\"cc_CCA17_1_' + (i+1) + '\"]').length && $('input[name=\"cc_CCA17_1_' + (i+1) + '\"]').attr('cname') == '校内活动/职位描述' && $('.infoschoolclub .mt_schClubList').eq(i).html()){
 					$('input[name=\"cc_CCA17_1_' + (i+1) + '\"]').val($('.infoschoolclub .mt_schClubList').eq(i).html())
 				}
-				if($('input[cname=\"校内职务' + (i+1) + '\"]') && $('.infoschoolclub .mt_positionName').eq(i).html()){
+				if($('input[cname=\"校内职务' + (i+1) + '\"]').length && $('.infoschoolclub .mt_positionName').eq(i).html()){
 					$('input[cname=\"校内职务' + (i+1) + '\"]').val($('.infoschoolclub .mt_positionName').eq(i).html())
 				}
-				if($('input[cname=\"校内活动/职位描述' + (i+1) + '\"]') && $('.infoschoolclub .mt_schClubList').eq(i).html()){
+				if($('input[cname=\"校内活动/职位描述' + (i+1) + '\"]').length && $('.infoschoolclub .mt_schClubList').eq(i).html()){
 					$('input[cname=\"校内活动/职位描述' + (i+1) + '\"]').val($('.infoschoolclub .mt_schClubList').eq(i).html())
 				}
 			}
@@ -6949,55 +6961,58 @@
 		}
 		//家庭情况
 		if($('#container h1').html() == '家庭成员' || $('#container h1').html() == '家庭背景' || $('#container h1').html() == '家庭成员信息' || $('#container h1').html() == '其他' || $('#container h1').html() == '家庭情况' || $('#container h1').html() == '家庭成员情况' || $('#container h1').html() == '家庭成员及主要社会关系'){
-			if($('input[cname=\"姓名\"]') && $('#mt_fmname').html()){
+			if($('input[cname=\"姓名\"]').length && $('#mt_fmname').html()){
 				$('input[cname=\"姓名\"]').val($('#mt_fmname').html());
 			}
-			if($('input[cname=\"亲属姓名\"]') && $('#mt_fmname').html()){
+			if($('input[cname=\"亲属姓名\"]').length && $('#mt_fmname').html()){
 				$('input[cname=\"亲属姓名\"]').val($('#mt_fmname').html());
 			}
-			if($('input[cname=\"家庭成员姓名\"]') && $('#mt_fmname').html()){
+			if($('input[cname=\"家庭成员姓名\"]').length && $('#mt_fmname').html()){
 				$('input[cname=\"家庭成员姓名\"]').val($('#mt_fmname').html());
 			}
-			if($('input[cname=\"称谓\"]') && $('#mt_fmrelation').html()){
+			if($('input[cname=\"称谓\"]').length && $('#mt_fmrelation').html()){
 				$('input[cname=\"称谓\"]').val($('#mt_fmrelation').html());
 			}
-			if($('input[cname=\"关系\"]') && $('#mt_fmrelation').html()){
+			if($('input[cname=\"关系\"]').length && $('#mt_fmrelation').html()){
 				$('input[cname=\"关系\"]').val($('#mt_fmrelation').html());
 			}
-			if($('input[cname=\"与本人关系\"]') && $('#mt_fmrelation').html()){
+			if($('input[cname=\"与本人关系\"]').length && $('#mt_fmrelation').html()){
 				$('input[cname=\"与本人关系\"]').val($('#mt_fmrelation').html());
 			}
-			if($('input[cname=\"亲属关系\"]') && $('#mt_fmrelation').html()){
+			if($('input[cname=\"亲属关系\"]').length && $('#mt_fmrelation').html()){
 				$('input[cname=\"亲属关系\"]').val($('#mt_fmrelation').html());
 			}
-			if($('input[cname=\"工作单位\"]') && $('#mt_fmwork').html()){
+			if($('input[cname=\"工作单位\"]').length && $('#mt_fmwork').html()){
 				$('input[cname=\"工作单位\"]').val($('#mt_fmwork').html());
 			}
-			if($('input[cname=\"亲属工作单位\"]') && $('#mt_fmwork').html()){
+			if($('input[cname=\"亲属工作单位\"]').length && $('#mt_fmwork').html()){
 				$('input[cname=\"亲属工作单位\"]').val($('#mt_fmwork').html());
 			}
-			if($('input[cname=\"工作单位/职务\"]') && $('#mt_fmwork').html()){
+			if($('input[cname=\"工作单位/职务\"]').length && $('#mt_fmwork').html()){
 				$('input[cname=\"工作单位/职务\"]').val($('#mt_fmwork').html());
 			}
-			if($('input[cname=\"岗位\"]') && $('#mt_fmposition').html()){
+			if($('input[cname=\"岗位\"]').length && $('#mt_fmposition').html()){
 				$('input[cname=\"岗位\"]').val($('#mt_fmposition').html());
 			}
-			if($('input[cname=\"职务\"]') && $('#mt_fmposition').html()){
+			if($('input[cname=\"职务\"]').length && $('#mt_fmposition').html()){
 				$('input[cname=\"职务\"]').val($('#mt_fmposition').html());
 			}
-			if($('input[cname=\"职位\"]') && $('#mt_fmposition').html()){
+			if($('input[cname=\"职位\"]').length && $('#mt_fmposition').html()){
 				$('input[cname=\"职位\"]').val($('#mt_fmposition').html());
 			}
-			if($('input[cname=\"亲属职务\"]') && $('#mt_fmposition').html()){
+			if($('input[cname=\"职务名称\"]').length && $('#mt_fmposition').html()){
+				$('input[cname=\"职务名称\"]').val($('#mt_fmposition').html());
+			}
+			if($('input[cname=\"亲属职务\"]').length && $('#mt_fmposition').html()){
 				$('input[cname=\"亲属职务\"]').val($('#mt_fmposition').html());
 			}
-			if($('input[cname=\"任职职务\"]') && $('#mt_fmposition').html()){
+			if($('input[cname=\"任职职务\"]').length && $('#mt_fmposition').html()){
 				$('input[cname=\"任职职务\"]').val($('#mt_fmposition').html());
 			}
-			if($('input[cname=\"亲属联系方式\"]') && $('#mt_fmphone').html()){
+			if($('input[cname=\"亲属联系方式\"]').length && $('#mt_fmphone').html()){
 				$('input[cname=\"亲属联系方式\"]').val($('#mt_fmphone').html());
 			}
-			if($('input[cname=\"电话\"]') && $('#mt_fmphone').html()){
+			if($('input[cname=\"电话\"]').length && $('#mt_fmphone').html()){
 				$('input[cname=\"电话\"]').val($('#mt_fmphone').html());
 			}
 		}
@@ -7172,6 +7187,9 @@
 				if ($('#cc_CCA2_1_' + (i + 1)) && $('#cc_CCA2_1_' + (i + 1)).attr('cname') == '担任职务') {
 					$('#cc_CCA2_1_' + (i + 1)).val($('.infoparttimejobs .mt_positionName').eq(i).html())
 				}
+				if ($('#cc_CCA4_1_' + (i + 1)) && $('#cc_CCA4_1_' + (i + 1)).attr('cname') == '职位名称') {
+					$('#cc_CCA4_1_' + (i + 1)).val($('.infoparttimejobs .mt_positionName').eq(i).html())
+				}
 				if ($('#cc_CCF1_6_' + (i + 1)) && $('#cc_CCF1_6_' + (i + 1)).attr('cname') == '担任职务') {
 					$('#cc_CCF1_6_' + (i + 1)).val($('.infoparttimejobs .mt_positionName').eq(i).html())
 				}
@@ -7211,6 +7229,9 @@
 				if ($('#cc_CCA1_1_' + (i + 1)) && $('#cc_CCA1_1_' + (i + 1)).attr('cname') == '所在部门') {
 					$('#cc_CCA1_1_' + (i + 1)).val($('.infoparttimejobs .mt_department').eq(i).html())
 				}
+				if ($('#cc_CCA3_1_' + (i + 1)) && $('#cc_CCA3_1_' + (i + 1)).attr('cname') == '所在部门') {
+					$('#cc_CCA3_1_' + (i + 1)).val($('.infoparttimejobs .mt_department').eq(i).html())
+				}
 				if ($('#cc_CCA22_1_' + (i + 1)) && $('#cc_CCA22_1_' + (i + 1)).attr('cname') == '实习部门') {
 					$('#cc_CCA22_1_' + (i + 1)).val($('.infoparttimejobs .mt_department').eq(i).html())
 				}
@@ -7238,7 +7259,12 @@
 				if ($('#cc_CCF5_6_' + (i + 1)).attr('cname') == '实习内容') {
 					$('#cc_CCF5_6_' + (i + 1)).val($('.infoparttimejobs .workContent').eq(i).html())
 				}
-				
+				if ($('#cc_CCA5_1_' + (i + 1)).attr('cname') == '证明人') {
+					$('#cc_CCA5_1_' + (i + 1)).val($('.infoparttimejobs .mt_reterenceName').eq(i).html())
+				}
+				if ($('#cc_CCA6_1_' + (i + 1)).attr('cname') == '证明人联系方式') {
+					$('#cc_CCA6_1_' + (i + 1)).val($('.infoparttimejobs .mt_reterence_phone').eq(i).html())
+				}
 			}
 		}
 		
@@ -7765,6 +7791,56 @@
 			}
 			if($('#cc_CCF3_6_1').length && $('#cc_CCF3_6_1').attr('cname') == '英语资格分数' && $('.infoEnglishSkill .mt_skillEngSorce').last().html()){
 				$('#cc_CCF3_6_1').val($('.infoEnglishSkill .mt_skillEngSorce').last().html());	
+			}
+		}
+		//其他语言能力
+		if($('#container h1').text() == '语言能力'){
+			let length = $('.infoOtherSkill .infopl').length;
+			for(let i=0; i<length; i++){
+				if($('#cc_CCA1_1_' + (i+1)).length && $('#cc_CCA1_1_' + (i+1)).attr('cname') == '语种' && $('.infoOtherSkill .mt_skillOtherLang').eq(i).html()){
+					let otherLang = $('#cc_CCA1_1_' + (i+1))[0].options;
+					let len = otherLang.length;
+					for(let j=0; j<len; j++){
+						if(otherLang[j].innerHTML == $('.infoOtherSkill .mt_skillOtherLang').eq(i).html()){
+							otherLang[j].selected = true;
+//							otherLang[j].dispatchEvent(event);
+						}
+					}
+				}
+				if($('#cc_CCA2_1_' + (i+1)).length && $('#cc_CCA2_1_' + (i+1)).attr('cname') == '听说能力' && $('.infoOtherSkill .mt_skillListenLevel').eq(i).html()){
+					let listen = $('#cc_CCA2_1_' + (i+1))[0].options;
+					switch($('.infoOtherSkill .mt_skillListenLevel').eq(i).html()){
+						case '精通': 
+							listen[1].selected = true;
+							break;
+						case '熟练': 
+							listen[2].selected = true;
+							break;
+						case '一般': 
+							listen[3].selected = true;
+							break;
+						case '了解': 
+							listen[4].selected = true;
+							break;
+					}
+				}
+				if($('#cc_CCA3_1_' + (i+1)).length && $('#cc_CCA3_1_' + (i+1)).attr('cname') == '读写能力' && $('.infoOtherSkill .mt_skillListenLevel').eq(i).html()){
+					let write = $('#cc_CCA3_1_' + (i+1))[0].options;
+					switch($('.infoOtherSkill .mt_skillListenLevel').eq(i).html()){
+						case '精通': 
+							write[1].selected = true;
+							break;
+						case '熟练': 
+							write[2].selected = true;
+							break;
+						case '一般': 
+							write[3].selected = true;
+							break;
+						case '了解': 
+							write[4].selected = true;
+							break;
+					}
+				}
 			}
 		}
 		//工作经历
