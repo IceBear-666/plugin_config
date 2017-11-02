@@ -6101,7 +6101,7 @@
 		
 		//家庭信息
 		if($('#container h1').text() == '家庭信息' || $('#container h1').text() == '家庭及身体情况' || $('#container h1').text() == '直系亲属' || $('#container h1').text() == '家庭关系' || $('#container h1').text() == '家庭情况及主要社会关系'){
-			if($('#cc_CCF1_6_1') && $('#mt_fmname').html()){
+			if($('#cc_CCF1_6_1').attr('cname') == '姓名' && $('#mt_fmname').html()){
 				$('#cc_CCF1_6_1').val($('#mt_fmname').html());
 			}
 			if($('#cc_CCF2_6_1') && $('#mt_fmrelation').html()){
@@ -6143,6 +6143,9 @@
 			if($('#cc_CCA4_1_1') && $('#cc_CCA4_1_1').attr('cname') =='工作单位' && $('#mt_fmwork').html()){
 				$('#cc_CCA4_1_1').val($('#mt_fmwork').html());
 			}
+			if($('#cc_CCF1_6_1').length && $('#cc_CCF1_6_1').attr('cname') =='工作单位' && $('#mt_fmwork').html()){
+				$('#cc_CCF1_6_1').val($('#mt_fmwork').html());
+			}
 			if($('#cc_CCA26_1_1') && $('#cc_CCA26_1_1').attr('cname') =='工作单位' && $('#mt_fmwork').html()){
 				$('#cc_CCA26_1_1').val($('#mt_fmwork').html());
 			}
@@ -6178,6 +6181,9 @@
 			}
 			if($('#cc_CCA6_1_1').attr('cname') == '职务' && $('#mt_fmposition').html()){
 				$('#cc_CCA6_1_1').val($('#mt_fmposition').html());
+			}
+			if($('#cc_CCA3_1_1').attr('cname') == '职位' && $('#mt_fmposition').html()){
+				$('#cc_CCA3_1_1').val($('#mt_fmposition').html());
 			}
 		}
 		//学生实践经验
@@ -6498,6 +6504,16 @@
 				}
 			}
 		}
+		//证书
+		if($('#container h1').text() == '资格证书'){
+			let length1 = $('.infoplcerti .infopl').length;
+			if($('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').length && $('.infoplcerti .mt_certificateName').eq(i).html()){
+				$('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').val($('.infoplcerti .mt_certificateName').eq(i).html())
+			}
+			if($('input[name=\"cc_CCC1_3_' + (i+1) + '\"]').length && $('.infoplcerti .mt_getDate').eq(i).html()){
+				$('input[name=\"cc_CCC1_3_' + (i+1) + '\"]').val(formatDate($('.infoplcerti .mt_getDate').eq(i).html()))
+			}
+		}
 		//证书 -- 年月分开写
 		if($('.main_title').text().trim() == '职业资格或证书'){
 			let length1 = $('.infoplcerti .infopl').length;
@@ -6712,7 +6728,7 @@
 			}
 		}
 		//项目经历
-		if($('#container h1').text() == '项目/实践经验' || $('#container h1').text() == '校内实践活动' || $('#container h1').text() == '项目经验' || $('#container h1').text() == '实习工作及项目经验'){
+		if($('#container h1').text() == '项目/实践经验' || $('#container h1').text() == '校内实践' || $('#container h1').text() == '校内实践活动' || $('#container h1').text() == '项目经验' || $('#container h1').text() == '实习工作及项目经验'){
 			let length = $('.infoproject .infopl').length;
 			for(let i=0; i<length; i++){
 				if($('input[name=\"cc_CCC3_3_' + (i+1) + '\"]') && $('.infoproject .mt_prostarttime').eq(i).html()){
@@ -6787,9 +6803,12 @@
 			}
 		}
 		//社团经历
-		if($('#container h1').text() == '学生社团经验' || $('#container h1').text() == '社团信息' || $('#container h1').text() == '社团/活动经历' || $('#container h1').text() == '在校实践经验' || $('#container h1').text() == '在校任职' || $('#container h1').text() == '学生会和社团' || $('#container h1').text() == '在校职务' || $('#container h1').text() == '学生干部任职情况' || $('#container h1').text() == '社团活动/工作实习情况' || $('#container h1').text() == '在校活动' || $('#container h1').text() == '校内活动经历' || $('#container h1').text() == '校内职务' || $('#container h1').text() == '学生干部经历' ||  $('#container h1').text() == '学生工作' || $('#container h1').text() == '校内实践经验' ){
+		if($('#container h1').text() == '学生社团经验' || $('#container h1').text() == '校内职务及奖励' || $('#container h1').text() == '社团信息' || $('#container h1').text() == '社团/活动经历' || $('#container h1').text() == '在校实践经验' || $('#container h1').text() == '在校任职' || $('#container h1').text() == '学生会和社团' || $('#container h1').text() == '在校职务' || $('#container h1').text() == '学生干部任职情况' || $('#container h1').text() == '社团活动/工作实习情况' || $('#container h1').text() == '在校活动' || $('#container h1').text() == '校内活动经历' || $('#container h1').text() == '校内职务' || $('#container h1').text() == '学生干部经历' ||  $('#container h1').text() == '学生工作' || $('#container h1').text() == '校内实践经验' ){
 			let length = $('.infoschoolclub .infopl').length;
 			for(let i=0; i<length; i++){
+				if($('select[name=\"cc_CCA11_1_1\"]').attr('cname') == '是否是学生干部'){
+					$('select[name=\"cc_CCA11_1_1\"]')[0].options[1].selected = true;
+				}
 				if($('input[name=\"cc_CCC1_3_' + (i+1) + '\"]').length && $('.infoschoolclub .mt_startDate').eq(i).html()){
 					$('input[name=\"cc_CCC1_3_' + (i+1) + '\"]').val(formatDate($('.infoschoolclub .mt_startDate').eq(i).html(), 2) + '-01')
 				}
@@ -6807,6 +6826,12 @@
 				}
 				if($('textarea[name=\"cc_CCF1_6_' + (i+1) + '\"]').length && $('.infoschoolclub .mt_schClubList').eq(i).html()){
 					$('textarea[name=\"cc_CCF1_6_' + (i+1) + '\"]').val($('.infoschoolclub .mt_schClubList').eq(i).html())
+				}
+				if($('input[name=\"cc_CCC11_3_' + (i+1) + '\"]').attr('cname') == '担任在校职务的开始时间' && $('.infoschoolclub .mt_startDate').eq(i).html()){
+					$('input[name=\"cc_CCC11_3_' + (i+1) + '\"]').val(formatDate($('.infoschoolclub .mt_startDate').eq(i).html(), 2) + '-01')
+				}
+				if($('input[name=\"cc_CCC12_3_' + (i+1) + '\"]').attr('cname') == '担任在校职务的结束时间' && $('.infoschoolclub .mt_endDate').eq(i).html()){
+					$('input[name=\"cc_CCC12_3_' + (i+1) + '\"]').val(formatDate($('.infoschoolclub .mt_endDate').eq(i).html(), 2) + '-01')
 				}
 				if($('input[name=\"cc_CCA1_1_' + (i+1) + '\"]').attr('cname') == '职务名称' && $('.infoschoolclub .mt_positionName').eq(i).html()){
 					$('input[name=\"cc_CCA1_1_' + (i+1) + '\"]').val($('.infoschoolclub .mt_positionName').eq(i).html())
@@ -7056,7 +7081,7 @@
 			}
 		}
 		//获奖经历
-		if($('#container h1').html() == '资格证书/其他技能' || $('#container h1').html() == '所获奖项' || $('#container h1').html() == '荣誉' || $('#container h1').html() == '获奖情况' || $('#container h1').html() == '获奖描述'){
+		if($('#container h1').html() == '资格证书/其他技能' || $('#container h1').html() == '获得奖励' || $('#container h1').html() == '所获奖项' || $('#container h1').html() == '荣誉' || $('#container h1').html() == '获奖情况' || $('#container h1').html() == '获奖描述'){
 			if($('.infoschaward .infopl').length){
 				let awardMess = '';
 				let length = $('.infoschaward .infopl').length;
@@ -7073,6 +7098,9 @@
 						$('input[name=\"cc_CCA1_1_' + (i+1) + '\"]').val($('.infoschaward .mt_awardsName').eq(i).html());
 					}
 					if($('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').attr('cname') == '奖项名称' && $('.infoschaward .mt_awardsName').eq(i).html()){
+						$('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').val($('.infoschaward .mt_awardsName').eq(i).html());
+					}
+					if($('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').attr('cname') == '奖励名称' && $('.infoschaward .mt_awardsName').eq(i).html()){
 						$('input[name=\"cc_CCF1_6_' + (i+1) + '\"]').val($('.infoschaward .mt_awardsName').eq(i).html());
 					}
 					if($('input[name=\"cc_CCA2_1_' + (i+1) + '\"]').attr('cname') == '获奖名称' && $('.infoschaward .mt_awardsName').eq(i).html()){
@@ -7154,9 +7182,112 @@
 			}
 			
 		} 
+		//工作经历 --- 中文 + 中文2
+		if($('#container h1').html() == '相关实习经验' || $('#container h1').html() == '实习经验' || $('#container h1').html() == '实习经历'){
+			let length = $('.infoparttimejobs .infopl').length;
+			if($('input[cname=\"实习开始时间\"]') && $('.infoparttimejobs .mt_startDate').html()){
+				$('input[cname=\"实习开始时间\"]').val(formatDate($('.infoparttimejobs .mt_startDate').html(),2) + '-01');
+			}
+			if($('input[cname=\"实习结束时间\"]') && $('.infoparttimejobs .mt_endDate').html()){
+				$('input[cname=\"实习结束时间\"]').val(formatDate($('.infoparttimejobs .mt_endDate').html(),2) + '-01');
+			}
+			if($('input[cname=\"实习单位名称\"]') && $('.infoparttimejobs .mt_companyName').html()){
+				$('input[cname=\"实习单位名称\"]').val($('.infoparttimejobs .mt_companyName').html());
+			}
+			if($('textarea[cname=\"相关实习描述\"]') && $('.infoparttimejobs .mt_workList').html()){
+				$('textarea[cname=\"相关实习描述\"]').val($('.infoparttimejobs .mt_workList').html());
+			}
+			if($('input[cname=\"开始时间\"]') && $('.infoparttimejobs .mt_startDate').html()){
+				$('input[cname=\"开始时间\"]').val(formatDate($('.infoparttimejobs .mt_startDate').html(),2) + '-01');
+			}
+			if($('input[cname=\"结束时间\"]') && $('.infoparttimejobs .mt_endDate').html()){
+				$('input[cname=\"结束时间\"]').val(formatDate($('.infoparttimejobs .mt_endDate').html(),2) + '-01');
+			}
+			if($('input[cname=\"开始日期\"]') && $('.infoparttimejobs .mt_startDate').html()){
+				$('input[cname=\"开始日期\"]').val(formatDate($('.infoparttimejobs .mt_startDate').html(),2) + '-01');
+			}
+			if($('input[cname=\"结束日期\"]') && $('.infoparttimejobs .mt_endDate').html()){
+				$('input[cname=\"结束日期\"]').val(formatDate($('.infoparttimejobs .mt_endDate').html(),2) + '-01');
+			}
+			if($('input[cname=\"实习公司名称\"]') && $('.infoparttimejobs .mt_companyName').html()){
+				$('input[cname=\"实习公司名称\"]').val($('.infoparttimejobs .mt_companyName').html());
+			}
+			if($('input[cname=\"实习单位\"]') && $('.infoparttimejobs .mt_companyName').html()){
+				$('input[cname=\"实习单位\"]').val($('.infoparttimejobs .mt_companyName').html());
+			}
+			if($('input[cname=\"实习部门\"]') && $('.infoparttimejobs .mt_department').html()){
+				$('input[cname=\"实习部门\"]').val($('.infoparttimejobs .mt_department').html());
+			}
+			if($('textarea[cname=\"职责描述\"]') && $('.infoparttimejobs .mt_workList').html()){
+				$('textarea[cname=\"职责描述\"]').val($('.infoparttimejobs .mt_workList').html());
+			}
+			if($('textarea[cname=\"实习经验描述\"]') && $('.infoparttimejobs .mt_workList').html()){
+				$('textarea[cname=\"实习经验描述\"]').val($('.infoparttimejobs .mt_workList').html());
+			}
+			if(length>1){
+				for(let i=1; i<length; i++){
+					if($('input[cname=\"实习开始时间' + (i+1) + '\"]') && $('.infoparttimejobs .mt_startDate').eq(i).html()){
+						$('input[cname=\"实习开始时间' + (i+1) + '\"]').val(formatDate($('.infoparttimejobs .mt_startDate').eq(i).html(),2) + '-01');
+					}
+					if($('input[cname=\"实习结束时间' + (i+1) + '\"]') && $('.infoparttimejobs .mt_endDate').eq(i).html()){
+						$('input[cname=\"实习结束时间' + (i+1) + '\"]').val(formatDate($('.infoparttimejobs .mt_endDate').eq(i).html(),2) + '-01');
+					}
+					if($('input[cname=\"实习单位名称' + (i+1) + '\"]') && $('.infoparttimejobs .mt_companyName').eq(i).html()){
+						$('input[cname=\"实习单位名称' + (i+1) + '\"]').val($('.infoparttimejobs .mt_companyName').eq(i).html());
+					}
+					if($('textarea[cname=\"相关实习描述' + (i+1) + '\"]') && $('.infoparttimejobs .mt_workList').eq(i).html()){
+						$('textarea[cname=\"相关实习描述' + (i+1) + '\"]').val($('.infoparttimejobs .mt_workList').eq(i).html());
+					}
+					if($('input[cname=\"开始时间' + (i+1) + '\"]') && $('.infoparttimejobs .mt_startDate').html()){
+						$('input[cname=\"开始时间' + (i+1) + '\"]').val(formatDate($('.infoparttimejobs .mt_startDate').html(),2) + '-01');
+					}
+					if($('input[cname=\"结束时间' + (i+1) + '\"]') && $('.infoparttimejobs .mt_endDate').html()){
+						$('input[cname=\"结束时间' + (i+1) + '\"]').val(formatDate($('.infoparttimejobs .mt_endDate').html(),2) + '-01');
+					}
+					if($('input[cname=\"开始日期' + (i+1) + '\"]') && $('.infoparttimejobs .mt_startDate').html()){
+						$('input[cname=\"开始日期' + (i+1) + '\"]').val(formatDate($('.infoparttimejobs .mt_startDate').html(),2) + '-01');
+					}
+					if($('input[cname=\"结束日期' + (i+1) + '\"]') && $('.infoparttimejobs .mt_endDate').html()){
+						$('input[cname=\"结束日期' + (i+1) + '\"]').val(formatDate($('.infoparttimejobs .mt_endDate').html(),2) + '-01');
+					}
+					if($('input[cname=\"实习公司名称' + (i+1) + '\"]') && $('.infoparttimejobs .mt_companyName').html()){
+						$('input[cname=\"实习公司名称' + (i+1) + '\"]').val($('.infoparttimejobs .mt_companyName').html());
+					}
+					if($('input[cname=\"实习单位' + (i+1) + '\"]') && $('.infoparttimejobs .mt_companyName').html()){
+						$('input[cname=\"实习单位' + (i+1) + '\"]').val($('.infoparttimejobs .mt_companyName').html());
+					}
+					if($('input[cname=\"实习部门' + (i+1) + '\"]') && $('.infoparttimejobs .mt_department').html()){
+						$('input[cname=\"实习部门' + (i+1) + '\"]').val($('.infoparttimejobs .mt_department').html());
+					}
+					if($('textarea[cname=\"职责描述' + (i+1) + '\"]') && $('.infoparttimejobs .mt_workList').html()){
+						$('textarea[cname=\"职责描述' + (i+1) + '\"]').val($('.infoparttimejobs .mt_workList').html());
+					}
+					if($('textarea[cname=\"实习经验描述' + (i+1) + '\"]') && $('.infoparttimejobs .mt_workList').html()){
+						$('textarea[cname=\"实习经验描述' + (i+1) + '\"]').val($('.infoparttimejobs .mt_workList').html());
+					}
+				}
+			}
+			
+		}
 		//工作经历
-		if ($('#container h1').eq(0).text() == '实习/工作经历' || $('#container h1').eq(0).text() == '实习或工作经历' || $('#container h1').eq(0).text() == '实习经验' || $('#container h1').eq(0).text() == '校外实习' || $('#container h1').eq(0).text() == '主要实习/兼职经历或校内外职务' || $('#container h1').eq(0).text() == '校外经历' || $('#container h1').eq(0).text() == '实践实习经历' || $('#container h1').eq(0).text() == '实践经历' || $('#container h1').eq(0).text() == '在校情况' || $('#container h1').eq(0).text() == '全职工作记录' || $('#container h1').eq(0).text() == '工作经验' || $('#container h1').eq(0).text() == '社会实践经验' || $('#container h1').eq(0).text() == '校内外实习经验/工作经历' || $('#container h1').eq(0).text() == '学生工作/实习经历') {
+		if ($('#container h1').eq(0).text() == '实习/工作经历' || $('#container h1').eq(0).text() == '实习经历' || $('#container h1').eq(0).text() == '实习或工作经历' || $('#container h1').eq(0).text() == '实习经验' || $('#container h1').eq(0).text() == '校外实习' || $('#container h1').eq(0).text() == '主要实习/兼职经历或校内外职务' || $('#container h1').eq(0).text() == '校外经历' || $('#container h1').eq(0).text() == '实践实习经历' || $('#container h1').eq(0).text() == '实践经历' || $('#container h1').eq(0).text() == '在校情况' || $('#container h1').eq(0).text() == '全职工作记录' || $('#container h1').eq(0).text() == '工作经验' || $('#container h1').eq(0).text() == '社会实践经验' || $('#container h1').eq(0).text() == '校内外实习经验/工作经历' || $('#container h1').eq(0).text() == '学生工作/实习经历') {
 			for (var i = 0; i < $('.infoparttimejobs .mt_companyName').length; i++) {
+				if ($('#cc_CCA1_1_' + (i + 1)).length) {
+					$('#cc_CCA1_1_' + (i + 1)).val($('.infoparttimejobs .mt_companyName').eq(i).html())
+				}
+				if ($('#cc_CCA1_1_' + (i + 1)).attr('cname') == '工作类型' && $('.infoparttimejobs .mt_workcat').eq(i).html()) {
+					let type = $('#cc_CCA1_1_' + (i + 1))[0].options;
+					switch($('.infoparttimejobs .mt_workcat').eq(i).html()){
+						case '实习': 
+							type[1].selected = true;
+							type[1].dispatchEvent(event);
+							break;
+						case '全职': 
+							type[2].selected = true;
+							type[2].dispatchEvent(event);
+							break;
+					}
+				}
 				if ($('#cc_CCA1_1_' + (i + 1))) {
 					$('#cc_CCA1_1_' + (i + 1)).val($('.infoparttimejobs .mt_companyName').eq(i).html())
 				}
@@ -7226,6 +7357,9 @@
 				if ($('#cc_CCA1_6_' + (i + 1)) && $('#cc_CCA1_6_' + (i + 1)).attr('cname') == '公司名称') {
 					$('#cc_CCA1_6_' + (i + 1)).val($('.infoparttimejobs .mt_companyName').eq(i).html())
 				}
+				if ($('#cc_CCA3_1_' + (i + 1)) && $('#cc_CCA3_1_' + (i + 1)).attr('cname') == '工作单位') {
+					$('#cc_CCA3_1_' + (i + 1)).val($('.infoparttimejobs .mt_companyName').eq(i).html())
+				}
 				if ($('#cc_CCA1_1_' + (i + 1)) && $('#cc_CCA1_1_' + (i + 1)).attr('cname') == '所在部门') {
 					$('#cc_CCA1_1_' + (i + 1)).val($('.infoparttimejobs .mt_department').eq(i).html())
 				}
@@ -7264,6 +7398,9 @@
 				}
 				if ($('#cc_CCA6_1_' + (i + 1)).attr('cname') == '证明人联系方式') {
 					$('#cc_CCA6_1_' + (i + 1)).val($('.infoparttimejobs .mt_reterence_phone').eq(i).html())
+				}
+				if ($('#cc_CCF2_6_' + (i + 1)).attr('cname') == '实习单位') {
+					$('#cc_CCF2_6_' + (i + 1)).val($('.infoparttimejobs .mt_companyName').eq(i).html())
 				}
 			}
 		}
@@ -7419,93 +7556,7 @@
 				}
 			}
 		}
-		//工作经历 --- 中文 + 中文2
-		if($('#container h1').html() == '相关实习经验' || $('#container h1').html() == '实习经验' || $('#container h1').html() == '实习经历'){
-			let length = $('.infoparttimejobs .infopl').length;
-			if($('input[cname=\"实习开始时间\"]') && $('.infoparttimejobs .mt_startDate').html()){
-				$('input[cname=\"实习开始时间\"]').val(formatDate($('.infoparttimejobs .mt_startDate').html(),2) + '-01');
-			}
-			if($('input[cname=\"实习结束时间\"]') && $('.infoparttimejobs .mt_endDate').html()){
-				$('input[cname=\"实习结束时间\"]').val(formatDate($('.infoparttimejobs .mt_endDate').html(),2) + '-01');
-			}
-			if($('input[cname=\"实习单位名称\"]') && $('.infoparttimejobs .mt_companyName').html()){
-				$('input[cname=\"实习单位名称\"]').val($('.infoparttimejobs .mt_companyName').html());
-			}
-			if($('textarea[cname=\"相关实习描述\"]') && $('.infoparttimejobs .mt_workList').html()){
-				$('textarea[cname=\"相关实习描述\"]').val($('.infoparttimejobs .mt_workList').html());
-			}
-			if($('input[cname=\"开始时间\"]') && $('.infoparttimejobs .mt_startDate').html()){
-				$('input[cname=\"开始时间\"]').val(formatDate($('.infoparttimejobs .mt_startDate').html(),2) + '-01');
-			}
-			if($('input[cname=\"结束时间\"]') && $('.infoparttimejobs .mt_endDate').html()){
-				$('input[cname=\"结束时间\"]').val(formatDate($('.infoparttimejobs .mt_endDate').html(),2) + '-01');
-			}
-			if($('input[cname=\"开始日期\"]') && $('.infoparttimejobs .mt_startDate').html()){
-				$('input[cname=\"开始日期\"]').val(formatDate($('.infoparttimejobs .mt_startDate').html(),2) + '-01');
-			}
-			if($('input[cname=\"结束日期\"]') && $('.infoparttimejobs .mt_endDate').html()){
-				$('input[cname=\"结束日期\"]').val(formatDate($('.infoparttimejobs .mt_endDate').html(),2) + '-01');
-			}
-			if($('input[cname=\"实习公司名称\"]') && $('.infoparttimejobs .mt_companyName').html()){
-				$('input[cname=\"实习公司名称\"]').val($('.infoparttimejobs .mt_companyName').html());
-			}
-			if($('input[cname=\"实习单位\"]') && $('.infoparttimejobs .mt_companyName').html()){
-				$('input[cname=\"实习单位\"]').val($('.infoparttimejobs .mt_companyName').html());
-			}
-			if($('input[cname=\"实习部门\"]') && $('.infoparttimejobs .mt_department').html()){
-				$('input[cname=\"实习部门\"]').val($('.infoparttimejobs .mt_department').html());
-			}
-			if($('textarea[cname=\"职责描述\"]') && $('.infoparttimejobs .mt_workList').html()){
-				$('textarea[cname=\"职责描述\"]').val($('.infoparttimejobs .mt_workList').html());
-			}
-			if($('textarea[cname=\"实习经验描述\"]') && $('.infoparttimejobs .mt_workList').html()){
-				$('textarea[cname=\"实习经验描述\"]').val($('.infoparttimejobs .mt_workList').html());
-			}
-			if(length>1){
-				for(let i=1; i<length; i++){
-					if($('input[cname=\"实习开始时间' + (i+1) + '\"]') && $('.infoparttimejobs .mt_startDate').eq(i).html()){
-						$('input[cname=\"实习开始时间' + (i+1) + '\"]').val(formatDate($('.infoparttimejobs .mt_startDate').eq(i).html(),2) + '-01');
-					}
-					if($('input[cname=\"实习结束时间' + (i+1) + '\"]') && $('.infoparttimejobs .mt_endDate').eq(i).html()){
-						$('input[cname=\"实习结束时间' + (i+1) + '\"]').val(formatDate($('.infoparttimejobs .mt_endDate').eq(i).html(),2) + '-01');
-					}
-					if($('input[cname=\"实习单位名称' + (i+1) + '\"]') && $('.infoparttimejobs .mt_companyName').eq(i).html()){
-						$('input[cname=\"实习单位名称' + (i+1) + '\"]').val($('.infoparttimejobs .mt_companyName').eq(i).html());
-					}
-					if($('textarea[cname=\"相关实习描述' + (i+1) + '\"]') && $('.infoparttimejobs .mt_workList').eq(i).html()){
-						$('textarea[cname=\"相关实习描述' + (i+1) + '\"]').val($('.infoparttimejobs .mt_workList').eq(i).html());
-					}
-					if($('input[cname=\"开始时间' + (i+1) + '\"]') && $('.infoparttimejobs .mt_startDate').html()){
-						$('input[cname=\"开始时间' + (i+1) + '\"]').val(formatDate($('.infoparttimejobs .mt_startDate').html(),2) + '-01');
-					}
-					if($('input[cname=\"结束时间' + (i+1) + '\"]') && $('.infoparttimejobs .mt_endDate').html()){
-						$('input[cname=\"结束时间' + (i+1) + '\"]').val(formatDate($('.infoparttimejobs .mt_endDate').html(),2) + '-01');
-					}
-					if($('input[cname=\"开始日期' + (i+1) + '\"]') && $('.infoparttimejobs .mt_startDate').html()){
-						$('input[cname=\"开始日期' + (i+1) + '\"]').val(formatDate($('.infoparttimejobs .mt_startDate').html(),2) + '-01');
-					}
-					if($('input[cname=\"结束日期' + (i+1) + '\"]') && $('.infoparttimejobs .mt_endDate').html()){
-						$('input[cname=\"结束日期' + (i+1) + '\"]').val(formatDate($('.infoparttimejobs .mt_endDate').html(),2) + '-01');
-					}
-					if($('input[cname=\"实习公司名称' + (i+1) + '\"]') && $('.infoparttimejobs .mt_companyName').html()){
-						$('input[cname=\"实习公司名称' + (i+1) + '\"]').val($('.infoparttimejobs .mt_companyName').html());
-					}
-					if($('input[cname=\"实习单位' + (i+1) + '\"]') && $('.infoparttimejobs .mt_companyName').html()){
-						$('input[cname=\"实习单位' + (i+1) + '\"]').val($('.infoparttimejobs .mt_companyName').html());
-					}
-					if($('input[cname=\"实习部门' + (i+1) + '\"]') && $('.infoparttimejobs .mt_department').html()){
-						$('input[cname=\"实习部门' + (i+1) + '\"]').val($('.infoparttimejobs .mt_department').html());
-					}
-					if($('textarea[cname=\"职责描述' + (i+1) + '\"]') && $('.infoparttimejobs .mt_workList').html()){
-						$('textarea[cname=\"职责描述' + (i+1) + '\"]').val($('.infoparttimejobs .mt_workList').html());
-					}
-					if($('textarea[cname=\"实习经验描述' + (i+1) + '\"]') && $('.infoparttimejobs .mt_workList').html()){
-						$('textarea[cname=\"实习经验描述' + (i+1) + '\"]').val($('.infoparttimejobs .mt_workList').html());
-					}
-				}
-			}
-			
-		}
+		
 		//项目经历
 		if($('#container h1').html() == '学生实践经验' || $('#container h1').html() == '校园活动' || $('#container h1').html() == '学生项目经验'){
 			let length = $('.infoproject .infopl').length;
