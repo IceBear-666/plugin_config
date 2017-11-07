@@ -9,7 +9,6 @@
 			1000)
 		}
 		
-		
 		var event = document.createEvent('HTMLEvents');
 		event.initEvent('change', true, false);
 		var help = {
@@ -7270,7 +7269,7 @@
 			
 		}
 		//工作经历
-		if ($('#container h1').eq(0).text() == '实习/工作经历' || $('#container h1').eq(0).text() == '实习经历' || $('#container h1').eq(0).text() == '实习或工作经历' || $('#container h1').eq(0).text() == '实习经验' || $('#container h1').eq(0).text() == '校外实习' || $('#container h1').eq(0).text() == '主要实习/兼职经历或校内外职务' || $('#container h1').eq(0).text() == '校外经历' || $('#container h1').eq(0).text() == '实践实习经历' || $('#container h1').eq(0).text() == '实践经历' || $('#container h1').eq(0).text() == '在校情况' || $('#container h1').eq(0).text() == '全职工作记录' || $('#container h1').eq(0).text() == '工作经验' || $('#container h1').eq(0).text() == '社会实践经验' || $('#container h1').eq(0).text() == '校内外实习经验/工作经历' || $('#container h1').eq(0).text() == '学生工作/实习经历') {
+		if ($('#container h1').eq(0).text() == '实习/工作经历' || $('#container h1').eq(0).text() == '科研经历/实践经历' || $('#container h1').eq(0).text() == '实习经历' || $('#container h1').eq(0).text() == '实习或工作经历' || $('#container h1').eq(0).text() == '实习经验' || $('#container h1').eq(0).text() == '校外实习' || $('#container h1').eq(0).text() == '主要实习/兼职经历或校内外职务' || $('#container h1').eq(0).text() == '校外经历' || $('#container h1').eq(0).text() == '实践实习经历' || $('#container h1').eq(0).text() == '实践经历' || $('#container h1').eq(0).text() == '在校情况' || $('#container h1').eq(0).text() == '全职工作记录' || $('#container h1').eq(0).text() == '工作经验' || $('#container h1').eq(0).text() == '社会实践经验' || $('#container h1').eq(0).text() == '校内外实习经验/工作经历' || $('#container h1').eq(0).text() == '学生工作/实习经历') {
 			for (var i = 0; i < $('.infoparttimejobs .mt_companyName').length; i++) {
 				if ($('#cc_CCA1_1_' + (i + 1)).length) {
 					$('#cc_CCA1_1_' + (i + 1)).val($('.infoparttimejobs .mt_companyName').eq(i).html())
@@ -7401,6 +7400,9 @@
 				}
 				if ($('#cc_CCF2_6_' + (i + 1)).attr('cname') == '实习单位') {
 					$('#cc_CCF2_6_' + (i + 1)).val($('.infoparttimejobs .mt_companyName').eq(i).html())
+				}
+				if ($('#cc_CCF1_6_' + (i + 1)) && $('#cc_CCF1_6_' + (i + 1)).attr('cname') == '担任角色') {
+					$('#cc_CCF1_6_' + (i + 1)).val($('.infoparttimejobs .mt_positionName').eq(i).html())
 				}
 			}
 		}
