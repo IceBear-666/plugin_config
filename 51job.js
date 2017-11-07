@@ -9,6 +9,7 @@
 			1000)
 		}
 		
+		
 		var event = document.createEvent('HTMLEvents');
 		event.initEvent('change', true, false);
 		var help = {
@@ -237,6 +238,9 @@
 			}
 			if ($('textarea[cname=\"特长及爱好\"]').length && $('#mt_skill').html()) {
 				$('textarea[cname=\"特长及爱好\"]').val($('#mt_skill').html())
+			}
+			if ($('input[cname=\"特长\"]').length && $('#mt_skill').html()) {
+				$('input[cname=\"特长\"]').val($('#mt_skill').html())
 			}
 			if ($('textarea[cname=\"爱好及专长\"]').length && $('#mt_skill').html()) {
 				$('textarea[cname=\"爱好及专长\"]').val($('#mt_skill').html())
@@ -7015,6 +7019,9 @@
 			if($('input[cname=\"工作单位/职务\"]').length && $('#mt_fmwork').html()){
 				$('input[cname=\"工作单位/职务\"]').val($('#mt_fmwork').html());
 			}
+			if($('input[cname=\"工作单位及职务\"]').length && $('#mt_fmwork').html()){
+				$('input[cname=\"工作单位及职务\"]').val($('#mt_fmwork').html());
+			}
 			if($('input[cname=\"岗位\"]').length && $('#mt_fmposition').html()){
 				$('input[cname=\"岗位\"]').val($('#mt_fmposition').html());
 			}
@@ -7080,7 +7087,7 @@
 			}
 		}
 		//获奖经历
-		if($('#container h1').html() == '资格证书/其他技能' || $('#container h1').html() == '获得奖励' || $('#container h1').html() == '所获奖项' || $('#container h1').html() == '荣誉' || $('#container h1').html() == '获奖情况' || $('#container h1').html() == '获奖描述'){
+		if($('#container h1').html() == '奖学金情况' || $('#container h1').html() == '资格证书/其他技能' || $('#container h1').html() == '获得奖励情况' || $('#container h1').html() == '获得奖励' || $('#container h1').html() == '所获奖项' || $('#container h1').html() == '荣誉' || $('#container h1').html() == '获奖情况' || $('#container h1').html() == '获奖描述'){
 			if($('.infoschaward .infopl').length){
 				let awardMess = '';
 				let length = $('.infoschaward .infopl').length;
@@ -7116,7 +7123,7 @@
 							default: break;
 						}
 					}
-					if($('select[name=\"cc_CCA1_1_' + (i+1) + '\"]').length && $('select[name=\"cc_CCA1_1_' + (i+1) + '\"]').attr('cname') == '获奖情况' && $('.infoschaward .mt_awardsType').eq(i).html()){
+					if($('select[name=\"cc_CCA1_1_' + (i+1) + '\"]').attr('cname') == '获奖情况' && $('.infoschaward .mt_awardsType').eq(i).html()){
 						let level = $('select[name=\"cc_CCA1_1_' + (i+1) + '\"]')[0].options;
 						switch($('.infoschaward .mt_awardsType').eq(i).html()){
 							case '学校级': level[5].selected = true;break;
@@ -7124,6 +7131,17 @@
 							case '省市级': level[3].selected = true;break;
 							case '国家级': level[2].selected = true;break;
 							case '国际级': level[1].selected = true;break;
+							default: break;
+						}
+					}
+					if($('select[name=\"cc_CCA2_1_' + (i+1) + '\"]').attr('cname') == '奖学金等级' && $('.infoschaward .mt_awardsType').eq(i).html()){
+						let level = $('select[name=\"cc_CCA2_1_' + (i+1) + '\"]')[0].options;
+						switch($('.infoschaward .mt_awardsType').eq(i).html()){
+							case '学校级': level[2].selected = true;break;
+							case '院系级': level[1].selected = true;break;
+							case '省市级': level[3].selected = true;break;
+							case '国家级': level[4].selected = true;break;
+							case '国际级': level[4].selected = true;break;
 							default: break;
 						}
 					}
@@ -7269,7 +7287,7 @@
 			
 		}
 		//工作经历
-		if ($('#container h1').eq(0).text() == '实习/工作经历' || $('#container h1').eq(0).text() == '科研经历/实践经历' || $('#container h1').eq(0).text() == '实习经历' || $('#container h1').eq(0).text() == '实习或工作经历' || $('#container h1').eq(0).text() == '实习经验' || $('#container h1').eq(0).text() == '校外实习' || $('#container h1').eq(0).text() == '主要实习/兼职经历或校内外职务' || $('#container h1').eq(0).text() == '校外经历' || $('#container h1').eq(0).text() == '实践实习经历' || $('#container h1').eq(0).text() == '实践经历' || $('#container h1').eq(0).text() == '在校情况' || $('#container h1').eq(0).text() == '全职工作记录' || $('#container h1').eq(0).text() == '工作经验' || $('#container h1').eq(0).text() == '社会实践经验' || $('#container h1').eq(0).text() == '校内外实习经验/工作经历' || $('#container h1').eq(0).text() == '学生工作/实习经历') {
+		if ($('#container h1').eq(0).text() == '实习/工作经历' || $('#container h1').eq(0).text() == '实习工作经历' || $('#container h1').eq(0).text() == '实习经历' || $('#container h1').eq(0).text() == '实习或工作经历' || $('#container h1').eq(0).text() == '实习经验' || $('#container h1').eq(0).text() == '校外实习' || $('#container h1').eq(0).text() == '主要实习/兼职经历或校内外职务' || $('#container h1').eq(0).text() == '校外经历' || $('#container h1').eq(0).text() == '实践实习经历' || $('#container h1').eq(0).text() == '实践经历' || $('#container h1').eq(0).text() == '在校情况' || $('#container h1').eq(0).text() == '全职工作记录' || $('#container h1').eq(0).text() == '工作经验' || $('#container h1').eq(0).text() == '社会实践经验' || $('#container h1').eq(0).text() == '校内外实习经验/工作经历' || $('#container h1').eq(0).text() == '学生工作/实习经历') {
 			for (var i = 0; i < $('.infoparttimejobs .mt_companyName').length; i++) {
 				if ($('#cc_CCA1_1_' + (i + 1)).length) {
 					$('#cc_CCA1_1_' + (i + 1)).val($('.infoparttimejobs .mt_companyName').eq(i).html())
@@ -7400,9 +7418,6 @@
 				}
 				if ($('#cc_CCF2_6_' + (i + 1)).attr('cname') == '实习单位') {
 					$('#cc_CCF2_6_' + (i + 1)).val($('.infoparttimejobs .mt_companyName').eq(i).html())
-				}
-				if ($('#cc_CCF1_6_' + (i + 1)) && $('#cc_CCF1_6_' + (i + 1)).attr('cname') == '担任角色') {
-					$('#cc_CCF1_6_' + (i + 1)).val($('.infoparttimejobs .mt_positionName').eq(i).html())
 				}
 			}
 		}
