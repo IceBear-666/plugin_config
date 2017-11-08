@@ -2322,6 +2322,14 @@
 	if ($('#contact_info_filed_215').length && $('#mt_zip ').html()) {
 		$('#contact_info_filed_215').val($('#mt_zip ').html())
 	}
-	
+	if ($('#contact_info_filed_251').length && $('#mt_jjlxr ').html()) {
+		$('#contact_info_filed_251').val($('#mt_jjlxr ').html())
+	}
+	if ($('#contact_info_filed_252').length && $('#mt_jjlxrtel ').html()) {
+		$('#contact_info_filed_252').val($('#mt_jjlxrtel ').html())
+	}
+	if ($('#contact_info_filed_237').length && $('#mt_add ').html()) {
+		$('#contact_info_filed_237').val($('#mt_add ').html())
+	}
 });
 })()
