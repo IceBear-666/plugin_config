@@ -297,6 +297,18 @@
 			if ($('input[cname=\"最高学位\"]').length && $('.infopledu .mt_degree').last().html()) {
 				$('input[cname=\"最高学位\"]').val($('.infopledu .mt_degree').last().html())
 			}
+			if ($('input[cname=\"毕业院校\"]').length && $('.infopledu .mt_schoolName').last().html()) {
+				$('input[cname=\"毕业院校\"]').val($('.infopledu .mt_schoolName').last().html())
+			}
+			if ($('input[cname=\"专业\"]').length && $('.infopledu .mt_professional').last().html()) {
+				$('input[cname=\"专业\"]').val($('.infopledu .mt_professional').last().html())
+			}
+			if ($('input[cname=\"最高学历\"]').length && $('.infopledu .mt_degree').last().html()) {
+				$('input[cname=\"最高学历\"]').val($('.infopledu .mt_degree').last().html())
+			}
+			if ($('input[cname=\"毕业时间\"]').length && $('.infopledu .mt_endYear').last().html()) {
+				$('input[cname=\"毕业时间\"]').val(formatDate($('.infopledu .mt_endYear').last().html()))
+			}
 			if ($('input[name=\"cc_CCA31_1_1\"]').length && (getTitle($('input[name=\"cc_CCA31_1_1\"]')) == '* 国籍' || getTitle($('input[name=\"cc_CCA31_1_1\"]')) == '国籍')) {
 				$('input[name=\"cc_CCA31_1_1\"]').val($('#mt_national').html())
 			}
@@ -319,6 +331,9 @@
 				if ($('#mt_maritalstatus').html() && $('#mt_maritalstatus').html() == '离婚') {
 					document.getElementById('cc_Marriage_1_1').options[3].selected = true
 				}
+			}
+			if ($('input[cname=\"婚育情况\"]').length && $('#mt_maritalstatus').html()) {
+				$('input[cname=\"婚育情况\"]').val($('#mt_maritalstatus').html())
 			}
 			if ($('input[name=\"cc_IDCard_1_1\"]').length && $('#mt_id').html()) {
 				$('input[name=\"cc_IDCard_1_1\"]').val($('#mt_id').html())
@@ -1147,6 +1162,15 @@
 					}
 				}
 			}
+			if ($('select[cname=\"外语水平\"]').length) {
+				var skillevel = $('select[cname=\"外语水平\"]').prev()[0].options;
+				switch($('.infoEnglishSkill .mt_skillEngLevel').last().html()){
+					case '大学英语四级': skillevel[1].selected = true;break;
+					case '大学英语六级': skillevel[2].selected = true;break;
+					case '专业四级': skillevel[2].selected = true;break;
+					case '专业八级': skillevel[3].selected = true;break;
+				}
+			}
 			if ($('#ddl_EnglishLevel_5_1')) {
 				var skilllevel = 0;
 				var maxlevel = 0;
@@ -1197,6 +1221,9 @@
 			}
 			if ($('select[name=\"ddl_OtherLanguage_5_1\"]').length) {
 				selectFacc($('.mt_skillOtherLang').html(), $('select[name=\"ddl_OtherLanguage_5_1\"]'))
+			}
+			if ($('input[cname=\"备选联系电话\"]').length) {
+				$('input[cname=\"备选联系电话\"]').val('')
 			}
 		}
 		if ($('#container h1').eq(0).text() == '教育信息' || $('#container h1').eq(0).text() == 'Education' || $('#container h1').eq(0).text() == '教育经历' || $('#container h1').eq(0).text() == '最高学历' || $('#container h1').eq(0).text() == '其他学历') {
@@ -6626,6 +6653,62 @@
 				}
 			}
 		}
+		//教育背景  cname+数字
+		if ($('#container h1').eq(0).text() == '教育背景（从高中写起）') {  
+			let length = $('.infopledu .infopl').length;
+			for(let i=0; i<length; i++){
+				if($('input[cname=\"开始日期' + (i+1) + '\"]').length && $('.infopledu .mt_startYear').eq(i).html()){
+					$('input[cname=\"开始日期' + (i+1) + '\"]').val(formatDate($('.infopledu .mt_startYear').eq(i).html(),2) + '-01');
+				}
+				if($('input[cname=\"结束日期' + (i+1) + '\"]').length && $('.infopledu .mt_startYear').eq(i).html()){
+					$('input[cname=\"结束日期' + (i+1) + '\"]').val(formatDate($('.infopledu .mt_startYear').eq(i).html(),2) + '-01');
+				}
+				if($('input[cname=\"学校名称' + (i+1) + '\"]').length && $('.infopledu .mt_schoolName').eq(i).html()){
+					$('input[cname=\"学校名称' + (i+1) + '\"]').val($('.infopledu .mt_schoolName').eq(i).html());
+				}
+				if($('input[cname=\"专业' + (i+1) + '\"]').length && $('.infopledu .mt_professional').eq(i).html()){
+					$('input[cname=\"专业' + (i+1) + '\"]').val($('.infopledu .mt_professional').eq(i).html());
+				}
+				if($('select[cname=\"学历' + (i+1) + '\"]').length && $('.infopledu .mt_education').eq(i).html()){
+					let edu = $('select[cname=\"学历' + (i+1) + '\"]')[0];
+					switch($('.infopledu .mt_education').eq(i).html()){
+						case 'MPA':
+						case 'EMBA':
+						case 'MBA':
+						case '博士研究生':
+							edu.options[8].selected = true;
+							break;
+						case '硕士研究生':
+							edu.options[7].selected = true;
+							break;
+						case '双学士':
+						case '大学本科-一本':
+						case '大学本科-二本':
+						case '大学本科-三本':
+							edu.options[6].selected = true;
+							break;
+						case '大学专科':
+							edu.options[5].selected = true;
+							break;
+						case '中专':
+							edu.options[4].selected = true;
+							break;
+						case '技校/职高':
+							edu.options[3].selected = true;
+							break;
+						case '高中':
+							edu.options[2].selected = true;
+							break;
+						case '初中及以下':
+							edu.options[1].selected = true;
+							break;
+						default:
+							break
+					}
+				}
+			}
+			
+		}
 		//教育经历
 		if($('#container h1').text() == '其他教育经历' || $('#container h1').text() == '学习经历'){
 			let length = $('.infopledu .infopl').length;
@@ -6806,7 +6889,7 @@
 			}
 		}
 		//社团经历
-		if($('#container h1').text() == '学生社团经验' || $('#container h1').text() == '校内职务及奖励' || $('#container h1').text() == '社团信息' || $('#container h1').text() == '社团/活动经历' || $('#container h1').text() == '在校实践经验' || $('#container h1').text() == '在校任职' || $('#container h1').text() == '学生会和社团' || $('#container h1').text() == '在校职务' || $('#container h1').text() == '学生干部任职情况' || $('#container h1').text() == '社团活动/工作实习情况' || $('#container h1').text() == '在校活动' || $('#container h1').text() == '校内活动经历' || $('#container h1').text() == '校内职务' || $('#container h1').text() == '学生干部经历' ||  $('#container h1').text() == '学生工作' || $('#container h1').text() == '校内实践经验' ){
+		if($('#container h1').text() == '学生社团经验' || $('#container h1').text() == '在校期间参与的社团活动、公益活动等' || $('#container h1').text() == '校内职务及奖励' || $('#container h1').text() == '社团信息' || $('#container h1').text() == '社团/活动经历' || $('#container h1').text() == '在校实践经验' || $('#container h1').text() == '在校任职' || $('#container h1').text() == '学生会和社团' || $('#container h1').text() == '在校职务' || $('#container h1').text() == '学生干部任职情况' || $('#container h1').text() == '社团活动/工作实习情况' || $('#container h1').text() == '在校活动' || $('#container h1').text() == '校内活动经历' || $('#container h1').text() == '校内职务' || $('#container h1').text() == '学生干部经历' ||  $('#container h1').text() == '学生工作' || $('#container h1').text() == '校内实践经验' ){
 			let length = $('.infoschoolclub .infopl').length;
 			for(let i=0; i<length; i++){
 				if($('select[name=\"cc_CCA11_1_1\"]').attr('cname') == '是否是学生干部'){
@@ -6890,8 +6973,14 @@
 				if($('input[cname=\"校内职务' + (i+1) + '\"]').length && $('.infoschoolclub .mt_positionName').eq(i).html()){
 					$('input[cname=\"校内职务' + (i+1) + '\"]').val($('.infoschoolclub .mt_positionName').eq(i).html())
 				}
+				if($('input[cname=\"担任的职务' + (i+1) + '\"]').length && $('.infoschoolclub .mt_positionName').eq(i).html()){
+					$('input[cname=\"担任的职务' + (i+1) + '\"]').val($('.infoschoolclub .mt_positionName').eq(i).html())
+				}
 				if($('input[cname=\"校内活动/职位描述' + (i+1) + '\"]').length && $('.infoschoolclub .mt_schClubList').eq(i).html()){
 					$('input[cname=\"校内活动/职位描述' + (i+1) + '\"]').val($('.infoschoolclub .mt_schClubList').eq(i).html())
+				}
+				if($('input[cname=\"主要的职责及取得的主要成果' + (i+1) + '\"]').length && $('.infoschoolclub .mt_schClubList').eq(i).html()){
+					$('input[cname=\"主要的职责及取得的主要成果' + (i+1) + '\"]').val($('.infoschoolclub .mt_schClubList').eq(i).html())
 				}
 			}
 		}
@@ -7287,7 +7376,7 @@
 			
 		}
 		//工作经历
-		if ($('#container h1').eq(0).text() == '实习/工作经历' || $('#container h1').eq(0).text() == '实习工作经历' || $('#container h1').eq(0).text() == '实习经历' || $('#container h1').eq(0).text() == '实习或工作经历' || $('#container h1').eq(0).text() == '实习经验' || $('#container h1').eq(0).text() == '校外实习' || $('#container h1').eq(0).text() == '主要实习/兼职经历或校内外职务' || $('#container h1').eq(0).text() == '校外经历' || $('#container h1').eq(0).text() == '实践实习经历' || $('#container h1').eq(0).text() == '实践经历' || $('#container h1').eq(0).text() == '在校情况' || $('#container h1').eq(0).text() == '全职工作记录' || $('#container h1').eq(0).text() == '工作经验' || $('#container h1').eq(0).text() == '社会实践经验' || $('#container h1').eq(0).text() == '校内外实习经验/工作经历' || $('#container h1').eq(0).text() == '学生工作/实习经历') {
+		if ($('#container h1').eq(0).text() == '实习/工作经历' || $('#container h1').eq(0).text() == '最关键的实习、兼职或工作经历' || $('#container h1').eq(0).text() == '实习工作经历' || $('#container h1').eq(0).text() == '实习经历' || $('#container h1').eq(0).text() == '实习或工作经历' || $('#container h1').eq(0).text() == '实习经验' || $('#container h1').eq(0).text() == '校外实习' || $('#container h1').eq(0).text() == '主要实习/兼职经历或校内外职务' || $('#container h1').eq(0).text() == '校外经历' || $('#container h1').eq(0).text() == '实践实习经历' || $('#container h1').eq(0).text() == '实践经历' || $('#container h1').eq(0).text() == '在校情况' || $('#container h1').eq(0).text() == '全职工作记录' || $('#container h1').eq(0).text() == '工作经验' || $('#container h1').eq(0).text() == '社会实践经验' || $('#container h1').eq(0).text() == '校内外实习经验/工作经历' || $('#container h1').eq(0).text() == '学生工作/实习经历') {
 			for (var i = 0; i < $('.infoparttimejobs .mt_companyName').length; i++) {
 				if ($('#cc_CCA1_1_' + (i + 1)).length) {
 					$('#cc_CCA1_1_' + (i + 1)).val($('.infoparttimejobs .mt_companyName').eq(i).html())
@@ -7418,6 +7507,12 @@
 				}
 				if ($('#cc_CCF2_6_' + (i + 1)).attr('cname') == '实习单位') {
 					$('#cc_CCF2_6_' + (i + 1)).val($('.infoparttimejobs .mt_companyName').eq(i).html())
+				}
+				if ($('#cc_CCA3_1_' + (i + 1)).attr('cname') == '证明人') {
+					$('#cc_CCA3_1_' + (i + 1)).val($('.infoparttimejobs .mt_reterenceName').eq(i).html())
+				}
+				if ($('#cc_CCA4_1_' + (i + 1)).attr('cname') == '电话') {
+					$('#cc_CCA4_1_' + (i + 1)).val($('.infoparttimejobs .mt_reterence_phone').eq(i).html())
 				}
 			}
 		}
