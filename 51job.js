@@ -6070,7 +6070,7 @@
 		}
 		
 		//家庭信息
-		if($('#container h1').text() == '家庭信息' || $('#container h1').text() == '家庭及身体情况' || $('#container h1').text() == '直系亲属' || $('#container h1').text() == '家庭关系' || $('#container h1').text() == '家庭情况及主要社会关系'){
+		if($('#container h1').text() == '家庭信息' || $('#container h1').text() == '家庭主要成员' || $('#container h1').text() == '家庭及身体情况' || $('#container h1').text() == '直系亲属' || $('#container h1').text() == '家庭关系' || $('#container h1').text() == '家庭情况及主要社会关系'){
 			if($('#cc_CCF1_6_1').attr('cname') == '姓名' && $('#mt_fmname').html()){
 				$('#cc_CCF1_6_1').val($('#mt_fmname').html());
 			}
@@ -6119,6 +6119,9 @@
 			if($('#cc_CCA26_1_1') && $('#cc_CCA26_1_1').attr('cname') =='工作单位' && $('#mt_fmwork').html()){
 				$('#cc_CCA26_1_1').val($('#mt_fmwork').html());
 			}
+			if($('#cc_CCA3_1_1') && $('#cc_CCA3_1_1').attr('cname') =='工作单位及职务' && $('#mt_fmwork').html()){
+				$('#cc_CCA3_1_1').val($('#mt_fmwork').html());
+			}
 			if($('#cc_CCF3_6_1') && $('#cc_CCF3_6_1').attr('cname') =='工作单位及职务1' && $('#mt_fmwork').html()){
 				$('#cc_CCF3_6_1').val($('#mt_fmwork').html());
 			}
@@ -6130,6 +6133,9 @@
 			}
 			if($('#cc_CCA3_1_1') && $('#cc_CCA3_1_1').attr('cname') =='工作单位' && $('#mt_fmwork').html()){
 				$('#cc_CCA3_1_1').val($('#mt_fmwork').html());
+			}
+			if($('#cc_CCA4_1_1') && $('#cc_CCA4_1_1').attr('cname') =='联系方式' && $('#mt_fmphone').html()){
+				$('#cc_CCA4_1_1').val($('#mt_fmphone').html());
 			}
 			if($('#cc_CCA6_1_1') && $('#cc_CCA6_1_1').attr('cname') =='联系方式' && $('#mt_fmphone').html()){
 				$('#cc_CCA6_1_1').val($('#mt_fmphone').html());
@@ -7972,7 +7978,7 @@
 			}
 		}
 		//社团经历
-		if($('#container h1').text() == '学生社团经验' || $('#container h1').text() == '在校期间参与的社团活动、公益活动等' || $('#container h1').text() == '校内职务及奖励' || $('#container h1').text() == '社团信息' || $('#container h1').text() == '社团/活动经历' || $('#container h1').text() == '在校实践经验' || $('#container h1').text() == '在校任职' || $('#container h1').text() == '学生会和社团' || $('#container h1').text() == '在校职务' || $('#container h1').text() == '学生干部任职情况' || $('#container h1').text() == '社团活动/工作实习情况' || $('#container h1').text() == '在校活动' || $('#container h1').text() == '校内活动经历' || $('#container h1').text() == '校内职务' || $('#container h1').text() == '学生干部经历' ||  $('#container h1').text() == '学生工作' || $('#container h1').text() == '校内实践经验' ){
+		if($('#container h1').text() == '学生社团经验' || $('#container h1').text() == '社团及学生会工作' || $('#container h1').text() == '在校期间参与的社团活动、公益活动等' || $('#container h1').text() == '校内职务及奖励' || $('#container h1').text() == '社团信息' || $('#container h1').text() == '社团/活动经历' || $('#container h1').text() == '在校实践经验' || $('#container h1').text() == '在校任职' || $('#container h1').text() == '学生会和社团' || $('#container h1').text() == '在校职务' || $('#container h1').text() == '学生干部任职情况' || $('#container h1').text() == '社团活动/工作实习情况' || $('#container h1').text() == '在校活动' || $('#container h1').text() == '校内活动经历' || $('#container h1').text() == '校内职务' || $('#container h1').text() == '学生干部经历' ||  $('#container h1').text() == '学生工作' || $('#container h1').text() == '校内实践经验' ){
 			let length = $('.infoschoolclub .infopl').length;
 			for(let i=0; i<length; i++){
 				if($('select[name=\"cc_CCA11_1_1\"]').attr('cname') == '是否是学生干部'){
